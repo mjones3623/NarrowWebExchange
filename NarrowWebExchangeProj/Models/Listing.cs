@@ -46,6 +46,7 @@ namespace NarrowWebExchangeProj.Models
         
         public int ListingDays { get; set; }
         //No user input below here
+        public int CurrentBid { get; set; }        
         public int NumberOfBids { get; set; }
         public int HighBidPrice { get; set; }
         public int HighBidUserId { get; set; }
@@ -53,6 +54,7 @@ namespace NarrowWebExchangeProj.Models
         public int Commission { get; set; }
         public int DueSeller { get; set; }
         public bool PaymentReceived { get; set; }
+
 
 
     }

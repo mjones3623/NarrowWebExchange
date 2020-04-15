@@ -32,17 +32,32 @@ namespace NarrowWebExchangeProj.Data
                     NormalizedName = "SiteUser"
                 }
                 );
+            builder.Entity<Condition>()
+               .HasData(
+                    new Condition { ConditionId = 1, ConditionName = "Excellent" },
+                    new Condition { ConditionId = 2, ConditionName = "Good" },
+                    new Condition { ConditionId = 3, ConditionName = "Needs Minor Repair" },
+                    new Condition { ConditionId = 4, ConditionName = "Needs Major Repair" },
+                    new Condition { ConditionId = 5, ConditionName = "Parts" }
+                           );
+            builder.Entity<ListingType>()
+               .HasData(
+                    new ListingType { ListingTypeId = 1, ListingTypeName = "BuyItNow"},
+                    new ListingType { ListingTypeId = 2, ListingTypeName = "BuyItNow With Auction"},
+                    new ListingType { ListingTypeId = 3, ListingTypeName = "Auction"}
+                    
+               );
             builder.Entity<Make>()
                .HasData(
                     new Make { MakeId = 1, MakeName = "Mark Andy"},
-                    new Make { MakeId = 1, MakeName = "Nilpeter" },
-                    new Make { MakeId = 1, MakeName = "Gallus" },
-                    new Make { MakeId = 1, MakeName = "Edale" },
-                    new Make { MakeId = 1, MakeName = "MPS" },
-                    new Make { MakeId = 1, MakeName = "Omet" },
-                    new Make { MakeId = 1, MakeName = "Aquaflex" },
-                    new Make { MakeId = 1, MakeName = "Allied Gear"},
-                    new Make { MakeId = 1, MakeName = "Roto-Press" }
+                    new Make { MakeId = 2, MakeName = "Nilpeter" },
+                    new Make { MakeId = 3, MakeName = "Gallus" },
+                    new Make { MakeId = 4, MakeName = "Edale" },
+                    new Make { MakeId = 5, MakeName = "MPS" },
+                    new Make { MakeId = 6, MakeName = "Omet" },
+                    new Make { MakeId = 7, MakeName = "Aquaflex" },
+                    new Make { MakeId = 8, MakeName = "Allied Gear"},
+                    new Make { MakeId = 9, MakeName = "Roto-Press" }
                );
             builder.Entity<State>()
                 .HasData(
@@ -99,9 +114,12 @@ namespace NarrowWebExchangeProj.Data
                     new State { StateId = 51, StateName = "District of Columbia", StateAbbreviation = "DC" }
                 );
         }
+        public DbSet<Models.Condition> Conditions { get; set; }
+        public DbSet<Models.ListingType> ListingTypes { get; set; }
         public DbSet<Models.State> States { get; set; }
         public DbSet<Models.SiteUser> SiteUsers { get; set; }
         public DbSet<Models.Make> Makes { get; set; }
+        public DbSet<NarrowWebExchangeProj.Models.Listing> Listing { get; set; }
     }
     
 

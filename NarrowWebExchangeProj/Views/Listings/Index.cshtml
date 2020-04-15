@@ -1,0 +1,174 @@
+﻿@model IEnumerable<NarrowWebExchangeProj.Models.Listing>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SellerUserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Make)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Width)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumColors)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumDieStations)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Condition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ToolingIncluded)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FeaturesAndComments)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListingType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BuyItNowPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReservePrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListingDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListingDays)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CurrentBid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfBids)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HighBidPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HighBidUserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReserveMet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Commission)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DueSeller)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaymentReceived)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SellerUserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Make)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Width)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumColors)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumDieStations)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Condition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ToolingIncluded)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FeaturesAndComments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ListingType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BuyItNowPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReservePrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ListingDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ListingDays)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrentBid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfBids)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HighBidPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HighBidUserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReserveMet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Commission)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DueSeller)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentReceived)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ListingId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ListingId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ListingId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
