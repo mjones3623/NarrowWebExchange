@@ -1,0 +1,78 @@
+﻿@model IEnumerable<NarrowWebExchangeProj.Models.SiteUser>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdentityUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SiteUserFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SiteUserLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SiteUserStreetAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SiteUserCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SiteUserState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SiteUserZipCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SiteUserPhone)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdentityUser.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SiteUserFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SiteUserLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SiteUserStreetAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SiteUserCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SiteUserState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SiteUserZipCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SiteUserPhone)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SiteUserId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SiteUserId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SiteUserId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
