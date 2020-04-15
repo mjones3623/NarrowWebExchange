@@ -70,7 +70,7 @@ namespace NarrowWebExchangeProj.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdentityUserId"] = new SelectList(_context.Users, "Id", "Id", siteUser.IdentityUserId);
-            return View(siteUser);
+            return View("Home");
         }
 
         // GET: SiteUsers/Edit/5

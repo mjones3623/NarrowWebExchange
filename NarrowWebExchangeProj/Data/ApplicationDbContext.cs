@@ -32,6 +32,18 @@ namespace NarrowWebExchangeProj.Data
                     NormalizedName = "SiteUser"
                 }
                 );
+            builder.Entity<Make>()
+               .HasData(
+                    new Make { MakeId = 1, MakeName = "Mark Andy"},
+                    new Make { MakeId = 1, MakeName = "Nilpeter" },
+                    new Make { MakeId = 1, MakeName = "Gallus" },
+                    new Make { MakeId = 1, MakeName = "Edale" },
+                    new Make { MakeId = 1, MakeName = "MPS" },
+                    new Make { MakeId = 1, MakeName = "Omet" },
+                    new Make { MakeId = 1, MakeName = "Aquaflex" },
+                    new Make { MakeId = 1, MakeName = "Allied Gear"},
+                    new Make { MakeId = 1, MakeName = "Roto-Press" }
+               );
             builder.Entity<State>()
                 .HasData(
                     new State { StateId = 1, StateName = "Alabama", StateAbbreviation = "AL" },
@@ -89,6 +101,7 @@ namespace NarrowWebExchangeProj.Data
         }
         public DbSet<Models.State> States { get; set; }
         public DbSet<Models.SiteUser> SiteUsers { get; set; }
+        public DbSet<Models.Make> Makes { get; set; }
     }
     
 

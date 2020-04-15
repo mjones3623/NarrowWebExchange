@@ -113,7 +113,7 @@ namespace NarrowWebExchangeProj.Areas.Identity.Pages.Account
                     else
                     {
                         await _signInManager.SignInAsync(user, isPersistent: false);
-                        return LocalRedirect(returnUrl);
+                        return RedirectToAction("Create", "SiteUsers");
                     }
                 }
                 foreach (var error in result.Errors)
