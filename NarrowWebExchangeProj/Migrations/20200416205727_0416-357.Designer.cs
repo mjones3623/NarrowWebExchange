@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NarrowWebExchangeProj.Data;
 
 namespace NarrowWebExchangeProj.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200416205727_0416-357")]
+    partial class _0416357
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,15 +50,15 @@ namespace NarrowWebExchangeProj.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2509cdab-94de-470e-8dfb-1b6419d145b9",
-                            ConcurrencyStamp = "4ace5bb3-c54a-480e-8238-3a480a983bbb",
+                            Id = "4ef538e6-0477-4ef9-b4fe-f5a33d20ee5b",
+                            ConcurrencyStamp = "af4976d8-b7cf-49ba-9348-0ed9abbb28d1",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "8b6e9d89-db60-49f5-931a-5088de3d4d70",
-                            ConcurrencyStamp = "fb171a22-b6e5-4a3e-9628-6675471aec73",
+                            Id = "967bfb21-8005-486f-880e-9c17686fe322",
+                            ConcurrencyStamp = "8e60e040-3ffd-4421-99ae-5119391c7c16",
                             Name = "SiteUser",
                             NormalizedName = "SiteUser"
                         });
@@ -307,18 +309,6 @@ namespace NarrowWebExchangeProj.Migrations
                     b.Property<int>("Hours")
                         .HasColumnType("int");
 
-                    b.Property<string>("Image1")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Image2")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Image3")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Image4")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("ListingDateTime")
                         .HasColumnType("datetime2");
 
@@ -366,6 +356,18 @@ namespace NarrowWebExchangeProj.Migrations
 
                     b.Property<int>("Year")
                         .HasColumnType("int");
+
+                    b.Property<string>("imb4")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("img1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("img2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("img3")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ListingId");
 
