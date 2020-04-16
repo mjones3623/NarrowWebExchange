@@ -113,7 +113,7 @@ namespace NarrowWebExchangeProj.Controllers
             return View(listing);
         }
         // GET: Listings/Create BuyItNowAuction
-        public IActionResult CreateBuyItNowAuction()
+        public IActionResult CreateBuyItNowWithAuction()
         {
             ViewData["Makes"] = new SelectList(_context.Makes, "MakeName", "MakeName");
             ViewData["Conditions"] = new SelectList(_context.Conditions, "ConditionName", "ConditionName");
@@ -126,14 +126,14 @@ namespace NarrowWebExchangeProj.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateBuyitNowAuction([Bind("ListingId,SellerUserId,Make,Model,Hours,Year,Width,NumColors,NumDieStations,Condition,ToolingIncluded,FeaturesAndComments,ListingType,BuyItNowPrice,ReservePrice,ListingDateTime,ListingDays,CurrentBid,NumberOfBids,HighBidPrice,HighBidUserId,ReserveMet,Commission,DueSeller,PaymentReceived")] Listing listing)
+        public async Task<IActionResult> CreateBuyItNowWithAuction([Bind("ListingId,SellerUserId,Make,Model,Hours,Year,Width,NumColors,NumDieStations,Condition,ToolingIncluded,FeaturesAndComments,ListingType,BuyItNowPrice,ReservePrice,ListingDateTime,ListingDays,CurrentBid,NumberOfBids,HighBidPrice,HighBidUserId,ReserveMet,Commission,DueSeller,PaymentReceived")] Listing listing)
         {
             if (ModelState.IsValid)
             {
                 var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
                 var siteUserInDb = _context.SiteUsers.Where(m => m.IdentityUserId == userId).FirstOrDefault();
                 listing.SellerUserId = siteUserInDb.SiteUserId;
-                listing.ListingType = "BuyItNow With Auction";
+                listing.ListingType = "BuyItNowAuction";
 
                 _context.Add(listing);
                 await _context.SaveChangesAsync();
