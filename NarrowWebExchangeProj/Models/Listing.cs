@@ -9,6 +9,7 @@ namespace NarrowWebExchangeProj.Models
 {
     public class Listing
     {
+       
         public int ListingId { get; set; }
         [ForeignKey("SiteUser")]
         public int SellerUserId { get; set; }

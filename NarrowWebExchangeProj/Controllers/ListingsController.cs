@@ -19,6 +19,16 @@ namespace NarrowWebExchangeProj.Controllers
             _context = context;
         }
 
+
+        // GET: Listings/Create
+        public IActionResult ChooseListingType()
+        {
+            
+            return View();
+        }
+
+
+
         // GET: Listings
         public async Task<IActionResult> Index()
         {
@@ -47,6 +57,8 @@ namespace NarrowWebExchangeProj.Controllers
         public IActionResult Create()
         {
             ViewData["Makes"] = new SelectList(_context.Makes, "MakeName", "MakeName");
+            ViewData["Conditions"] = new SelectList(_context.Conditions, "ConditionName", "ConditionName");
+            ViewData["ListingTypes"] = new SelectList(_context.ListingTypes, "ListingTypeName", "ListingTypeName");
             return View();
         }
 
@@ -150,5 +162,6 @@ namespace NarrowWebExchangeProj.Controllers
         {
             return _context.Listing.Any(e => e.ListingId == id);
         }
+
     }
 }
