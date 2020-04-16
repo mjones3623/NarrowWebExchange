@@ -53,12 +53,12 @@ namespace NarrowWebExchangeProj.Controllers
             return View(listing);
         }
 
-        // GET: Listings/Create
+        // GET: Listings/Create BuyItNow
         public IActionResult Create()
         {
             ViewData["Makes"] = new SelectList(_context.Makes, "MakeName", "MakeName");
             ViewData["Conditions"] = new SelectList(_context.Conditions, "ConditionName", "ConditionName");
-            ViewData["ListingTypes"] = new SelectList(_context.ListingTypes, "ListingTypeName", "ListingTypeName");
+            
             return View();
         }
 
@@ -68,6 +68,54 @@ namespace NarrowWebExchangeProj.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ListingId,SellerUserId,Make,Model,Hours,Year,Width,NumColors,NumDieStations,Condition,ToolingIncluded,FeaturesAndComments,ListingType,BuyItNowPrice,ReservePrice,ListingDateTime,ListingDays,CurrentBid,NumberOfBids,HighBidPrice,HighBidUserId,ReserveMet,Commission,DueSeller,PaymentReceived")] Listing listing)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(listing);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(listing);
+        }
+        // GET: Listings/Create Auction
+        public IActionResult CreateAuction()
+        {
+            ViewData["Makes"] = new SelectList(_context.Makes, "MakeName", "MakeName");
+            ViewData["Conditions"] = new SelectList(_context.Conditions, "ConditionName", "ConditionName");
+            
+            return View();
+        }
+
+        // POST: Listings/Create Auction
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateAuction([Bind("ListingId,SellerUserId,Make,Model,Hours,Year,Width,NumColors,NumDieStations,Condition,ToolingIncluded,FeaturesAndComments,ListingType,BuyItNowPrice,ReservePrice,ListingDateTime,ListingDays,CurrentBid,NumberOfBids,HighBidPrice,HighBidUserId,ReserveMet,Commission,DueSeller,PaymentReceived")] Listing listing)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(listing);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(listing);
+        }
+        // GET: Listings/Create BuyItNowAuction
+        public IActionResult CreateBuyItNowAuction()
+        {
+            ViewData["Makes"] = new SelectList(_context.Makes, "MakeName", "MakeName");
+            ViewData["Conditions"] = new SelectList(_context.Conditions, "ConditionName", "ConditionName");
+           
+            return View();
+        }
+
+        // POST: Listings/Create BuyItNowAuction
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateBuyitNowAuction([Bind("ListingId,SellerUserId,Make,Model,Hours,Year,Width,NumColors,NumDieStations,Condition,ToolingIncluded,FeaturesAndComments,ListingType,BuyItNowPrice,ReservePrice,ListingDateTime,ListingDays,CurrentBid,NumberOfBids,HighBidPrice,HighBidUserId,ReserveMet,Commission,DueSeller,PaymentReceived")] Listing listing)
         {
             if (ModelState.IsValid)
             {
