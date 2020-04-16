@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -71,6 +72,11 @@ namespace NarrowWebExchangeProj.Controllers
         {
             if (ModelState.IsValid)
             {
+                var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+                var siteUserInDb = _context.SiteUsers.Where(m => m.IdentityUserId == userId).FirstOrDefault();
+                listing.SellerUserId = siteUserInDb.SiteUserId;
+                listing.ListingType = "BuyItNow";
+
                 _context.Add(listing);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -95,6 +101,11 @@ namespace NarrowWebExchangeProj.Controllers
         {
             if (ModelState.IsValid)
             {
+                var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+                var siteUserInDb = _context.SiteUsers.Where(m => m.IdentityUserId == userId).FirstOrDefault();
+                listing.SellerUserId = siteUserInDb.SiteUserId;
+                listing.ListingType = "Auction";
+
                 _context.Add(listing);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -119,6 +130,11 @@ namespace NarrowWebExchangeProj.Controllers
         {
             if (ModelState.IsValid)
             {
+                var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+                var siteUserInDb = _context.SiteUsers.Where(m => m.IdentityUserId == userId).FirstOrDefault();
+                listing.SellerUserId = siteUserInDb.SiteUserId;
+                listing.ListingType = "BuyItNow With Auction";
+
                 _context.Add(listing);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
