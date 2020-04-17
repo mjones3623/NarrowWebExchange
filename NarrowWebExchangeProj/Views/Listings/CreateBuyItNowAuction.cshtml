@@ -1,17 +1,17 @@
 ﻿@model NarrowWebExchangeProj.Models.Listing
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "CreateBuyItNowAuction";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
+<h1>CreateBuyItNowAuction</h1>
 
 <h4>Listing</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="CreateBuyItNowAuction">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             
             <div class="form-group">
@@ -62,13 +62,17 @@
                 <textarea asp-for="FeaturesAndComments" class="form-control" rows="5"></textarea>
                 <span asp-validation-for="FeaturesAndComments" class="text-danger"></span>
             </div>
-            
+           
             <div class="form-group">
                 <label asp-for="BuyItNowPrice" class="control-label"></label>
                 <input asp-for="BuyItNowPrice" class="form-control" />
                 <span asp-validation-for="BuyItNowPrice" class="text-danger"></span>
             </div>
-            
+            <div class="form-group">
+                <label asp-for="ReservePrice" class="control-label"></label>
+                <input asp-for="ReservePrice" class="form-control" />
+                <span asp-validation-for="ReservePrice" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="ListingDateTime" class="control-label"></label>
                 <input asp-for="ListingDateTime" class="form-control" />

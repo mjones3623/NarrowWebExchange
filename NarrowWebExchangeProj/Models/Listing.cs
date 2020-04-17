@@ -55,9 +55,13 @@ namespace NarrowWebExchangeProj.Models
         public int Commission { get; set; }
         public int DueSeller { get; set; }
         public bool PaymentReceived { get; set; }
+        [Display(Name = "Upload Image File")]
         public string Image1 { get; set; }
+        [Display(Name = "Upload Image File")]
         public string Image2 { get; set; }
+        [Display(Name = "Upload Image File")]
         public string Image3 { get; set; }
+        [Display(Name = "Upload Image File")]
         public string Image4 { get; set; }
 
 

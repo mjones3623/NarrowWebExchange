@@ -4,24 +4,32 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>First, Choose the Type of Listing From Below</h2>
+<h1>First, Choose Listing Type</h1>
 
-<p>This is an important part of the listing so please read the options carefully 
-    and choose the option that best achieves your goals for the Listing</p>
+<p>
+    This is an important part of the listing so please read the options carefully
+    and choose the option that best achieves your goals for the Listing
+</p>
 
-<button onclick="window.location.href = 'https://localhost:44360/Listings/Create';"class="btn btn-primary btn-lg" type="button">BuyItNow</button>
+<button onclick="window.location.href = 'https://localhost:44360/Listings/Create';" class="btn btn-primary btn-lg" type="button">BuyItNow</button>
 
-<p>A <b>BuyItNow</b> listing allows the seller to choose a starting date <b>Date and Time To Start Listing</b>,
-    a <b>Price</b> that they want to offer their item for, and the <b>Number of Days</b> that the listing will be active.</p>
+<p>
+    A <b>BuyItNow</b> listing allows the seller to choose a starting date <b>Date and Time To Start Listing</b>,
+    a <b>Price</b> that they want to offer their item for, and the <b>Number of Days</b> that the listing will be active.
+</p>
 
-<p>The <b>BuyItNow</b> listing is for sellers that have a set price they want to receive for their item and want to be able to 
-offer their item to the market for that price for a specific period of time.  If no one accepts the <b>BuyItNow</b> offer
-within the listing timeframe, the listing expires.  Then you can re-list if you like!</p>
+<p>
+    The <b>BuyItNow</b> listing is for sellers that have a set price they want to receive for their item and want to be able to
+    offer their item to the market for that price for a specific period of time.  If no one accepts the <b>BuyItNow</b> offer
+    within the listing timeframe, the listing expires.  Then you can re-list if you like!
+</p>
 
 
 
-<p>An <b>Auction</b> listing is one where you set a <b>Reserve Price</b>, a <b>Date and Time to Start Listing</b>,
-    and the <b>Number of Days</b> that the listing will be active.</p>
+<p>
+    An <b>Auction</b> listing is one where you set a <b>Reserve Price</b>, a <b>Date and Time to Start Listing</b>,
+    and the <b>Number of Days</b> that the listing will be active.
+</p>
 
 <button onclick="window.location.href = 'https://localhost:44360/Listings/CreateAuction';" class="btn btn-primary btn-lg" type="button">Auction</button>
 
@@ -33,23 +41,37 @@ within the listing timeframe, the listing expires.  Then you can re-list if you 
     you can re-list if you like!
 </p>
 
-<p>This option is best if you want the market to compete for your item.  It also gives the seller, if they choose, the ability 
+<p>
+    This option is best if you want the market to compete for your item.  It also gives the seller, if they choose, the ability
     to set a <b>Reserve Price</b> which limits risk of the item being sold at an unacceptable price.  You can also set your reserve
-    very low, or at $0, to really get the bidding going!</p>
+    very low, or at $0, to really get the bidding going!
+</p>
 
-<button onclick="window.location.href = 'https://localhost:44360/Listings/CreateBuyItNowWithAuction';" class="btn btn-primary btn-lg" type="button">BuyItNow With Auction</button>
+<button onclick="window.location.href = 'https://localhost:44360/Listings/CreateBuyItNowAuction';" class="btn btn-primary btn-lg" type="button">BuyItNow With Auction</button>
 
-<p>As you may have guessed, the <b>BuyItNow With Auction</b> is a combination of the two listing types described above.  
-    Here's how it works. </p>
+<p>
+    As you may have guessed, the <b>BuyItNow With Auction</b> is a combination of the two listing types described above.
+    Here's how it works.
+</p>
 
-<p>The seller sets a <b>BuyItNow</b> price, a <b>Reserve Price</b>, a <b>Date and Time to Start Listing</b>
-    , and the <b>Number of Days</b> that the listing will be active.</p>
+<p>
+    The seller sets a <b>BuyItNow</b> price, a <b>Reserve Price</b>, a <b>Date and Time to Start Listing</b>
+    , and the <b>Number of Days</b> that the listing will be active.
+</p>
 
-<p>Buyers can bid lower than your <b>BuyItNow</b> price but cannot win the auction unless their bid is above your 
-    <b>Reserve Price</b>.</p>
+<p>
+    Buyers can bid lower than your <b>BuyItNow</b> price but cannot win the auction unless their bid is above your
+    <b>Reserve Price</b>.
+</p>
 
-<p>If there are not bids at or higher than your <b>Reserve Price</b> by the end of the auction, the auction expires and 
-    you can re-list if you like!</p>
+<p>
+    If there are not bids at or higher than your <b>Reserve Price</b> by the end of the auction, the auction expires and
+    you can re-list if you like!
+</p>
 
-<p>When a bid is placed that is above the <b>Reserve Price</b> the listing shows <b>"Reserve Met", the <b>BuyItNow</b> option
-   is removed, and the highest bidder from there on wins the auction.</b></p>
+<p>
+    When a bid is placed that is above the <b>Reserve Price</b> the listing shows <b>
+        "Reserve Met"</b>, the <b>BuyItNow</b> option
+        is removed, and the highest bidder from there on wins the auction.
+    
+</p>

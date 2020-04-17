@@ -19,16 +19,12 @@ namespace NarrowWebExchangeProj.Controllers
         {
             _context = context;
         }
-
-
-        // GET: Listings/Create
+        // GET: Choose Listing Type Page
         public IActionResult ChooseListingType()
         {
-            
+
             return View();
         }
-
-
 
         // GET: Listings
         public async Task<IActionResult> Index()
@@ -54,12 +50,12 @@ namespace NarrowWebExchangeProj.Controllers
             return View(listing);
         }
 
-        // GET: Listings/Create BuyItNow
+        // GET: Listings/Create
         public IActionResult Create()
         {
             ViewData["Makes"] = new SelectList(_context.Makes, "MakeName", "MakeName");
             ViewData["Conditions"] = new SelectList(_context.Conditions, "ConditionName", "ConditionName");
-            
+
             return View();
         }
 
@@ -68,7 +64,7 @@ namespace NarrowWebExchangeProj.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ListingId,SellerUserId,Make,Model,Hours,Year,Width,NumColors,NumDieStations,Condition,ToolingIncluded,FeaturesAndComments,ListingType,BuyItNowPrice,ReservePrice,ListingDateTime,ListingDays,CurrentBid,NumberOfBids,HighBidPrice,HighBidUserId,ReserveMet,Commission,DueSeller,PaymentReceived")] Listing listing)
+        public async Task<IActionResult> Create([Bind("ListingId,SellerUserId,Make,Model,Hours,Year,Width,NumColors,NumDieStations,Condition,ToolingIncluded,FeaturesAndComments,ListingType,BuyItNowPrice,ReservePrice,ListingDateTime,ListingDays,CurrentBid,NumberOfBids,HighBidPrice,HighBidUserId,ReserveMet,Commission,DueSeller,PaymentReceived,Image1,Image2,Image3,Image4")] Listing listing)
         {
             if (ModelState.IsValid)
             {
@@ -83,21 +79,21 @@ namespace NarrowWebExchangeProj.Controllers
             }
             return View(listing);
         }
-        // GET: Listings/Create Auction
+        // GET: Listings/Create
         public IActionResult CreateAuction()
         {
             ViewData["Makes"] = new SelectList(_context.Makes, "MakeName", "MakeName");
             ViewData["Conditions"] = new SelectList(_context.Conditions, "ConditionName", "ConditionName");
-            
+
             return View();
         }
 
-        // POST: Listings/Create Auction
+        // POST: Listings/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateAuction([Bind("ListingId,SellerUserId,Make,Model,Hours,Year,Width,NumColors,NumDieStations,Condition,ToolingIncluded,FeaturesAndComments,ListingType,BuyItNowPrice,ReservePrice,ListingDateTime,ListingDays,CurrentBid,NumberOfBids,HighBidPrice,HighBidUserId,ReserveMet,Commission,DueSeller,PaymentReceived")] Listing listing)
+        public async Task<IActionResult> CreateAuction([Bind("ListingId,SellerUserId,Make,Model,Hours,Year,Width,NumColors,NumDieStations,Condition,ToolingIncluded,FeaturesAndComments,ListingType,BuyItNowPrice,ReservePrice,ListingDateTime,ListingDays,CurrentBid,NumberOfBids,HighBidPrice,HighBidUserId,ReserveMet,Commission,DueSeller,PaymentReceived,Image1,Image2,Image3,Image4")] Listing listing)
         {
             if (ModelState.IsValid)
             {
@@ -112,21 +108,21 @@ namespace NarrowWebExchangeProj.Controllers
             }
             return View(listing);
         }
-        // GET: Listings/Create BuyItNowAuction
-        public IActionResult CreateBuyItNowWithAuction()
+        // GET: Listings/Create
+        public IActionResult CreateBuyItNowAuction()
         {
             ViewData["Makes"] = new SelectList(_context.Makes, "MakeName", "MakeName");
             ViewData["Conditions"] = new SelectList(_context.Conditions, "ConditionName", "ConditionName");
-           
+
             return View();
         }
 
-        // POST: Listings/Create BuyItNowAuction
+        // POST: Listings/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateBuyItNowWithAuction([Bind("ListingId,SellerUserId,Make,Model,Hours,Year,Width,NumColors,NumDieStations,Condition,ToolingIncluded,FeaturesAndComments,ListingType,BuyItNowPrice,ReservePrice,ListingDateTime,ListingDays,CurrentBid,NumberOfBids,HighBidPrice,HighBidUserId,ReserveMet,Commission,DueSeller,PaymentReceived")] Listing listing)
+        public async Task<IActionResult> CreateBuyItNowAuction([Bind("ListingId,SellerUserId,Make,Model,Hours,Year,Width,NumColors,NumDieStations,Condition,ToolingIncluded,FeaturesAndComments,ListingType,BuyItNowPrice,ReservePrice,ListingDateTime,ListingDays,CurrentBid,NumberOfBids,HighBidPrice,HighBidUserId,ReserveMet,Commission,DueSeller,PaymentReceived,Image1,Image2,Image3,Image4")] Listing listing)
         {
             if (ModelState.IsValid)
             {
@@ -163,7 +159,7 @@ namespace NarrowWebExchangeProj.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ListingId,SellerUserId,Make,Model,Hours,Year,Width,NumColors,NumDieStations,Condition,ToolingIncluded,FeaturesAndComments,ListingType,BuyItNowPrice,ReservePrice,ListingDateTime,ListingDays,CurrentBid,NumberOfBids,HighBidPrice,HighBidUserId,ReserveMet,Commission,DueSeller,PaymentReceived")] Listing listing)
+        public async Task<IActionResult> Edit(int id, [Bind("ListingId,SellerUserId,Make,Model,Hours,Year,Width,NumColors,NumDieStations,Condition,ToolingIncluded,FeaturesAndComments,ListingType,BuyItNowPrice,ReservePrice,ListingDateTime,ListingDays,CurrentBid,NumberOfBids,HighBidPrice,HighBidUserId,ReserveMet,Commission,DueSeller,PaymentReceived,Image1,Image2,Image3,Image4")] Listing listing)
         {
             if (id != listing.ListingId)
             {
@@ -226,6 +222,5 @@ namespace NarrowWebExchangeProj.Controllers
         {
             return _context.Listing.Any(e => e.ListingId == id);
         }
-
     }
 }

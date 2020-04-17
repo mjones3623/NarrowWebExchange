@@ -47,6 +47,45 @@ namespace NarrowWebExchangeProj.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Conditions",
+                columns: table => new
+                {
+                    ConditionId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ConditionName = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Conditions", x => x.ConditionId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ListingTypes",
+                columns: table => new
+                {
+                    ListingTypeId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ListingTypeName = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ListingTypes", x => x.ListingTypeId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Makes",
+                columns: table => new
+                {
+                    MakeId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MakeName = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Makes", x => x.MakeId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "States",
                 columns: table => new
                 {
@@ -192,13 +231,98 @@ namespace NarrowWebExchangeProj.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Listing",
+                columns: table => new
+                {
+                    ListingId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SellerUserId = table.Column<int>(nullable: false),
+                    UserIdSiteUserId = table.Column<int>(nullable: true),
+                    Make = table.Column<string>(nullable: true),
+                    Model = table.Column<string>(nullable: true),
+                    Hours = table.Column<int>(nullable: false),
+                    Year = table.Column<int>(nullable: false),
+                    Width = table.Column<int>(nullable: false),
+                    NumColors = table.Column<int>(nullable: false),
+                    NumDieStations = table.Column<int>(nullable: false),
+                    Condition = table.Column<string>(nullable: true),
+                    ToolingIncluded = table.Column<string>(nullable: true),
+                    FeaturesAndComments = table.Column<string>(nullable: true),
+                    ListingType = table.Column<string>(nullable: true),
+                    BuyItNowPrice = table.Column<int>(nullable: false),
+                    ReservePrice = table.Column<int>(nullable: false),
+                    ListingDateTime = table.Column<DateTime>(nullable: false),
+                    ListingDays = table.Column<int>(nullable: false),
+                    CurrentBid = table.Column<int>(nullable: false),
+                    NumberOfBids = table.Column<int>(nullable: false),
+                    HighBidPrice = table.Column<int>(nullable: false),
+                    HighBidUserId = table.Column<int>(nullable: false),
+                    ReserveMet = table.Column<bool>(nullable: false),
+                    Commission = table.Column<int>(nullable: false),
+                    DueSeller = table.Column<int>(nullable: false),
+                    PaymentReceived = table.Column<bool>(nullable: false),
+                    Image1 = table.Column<string>(nullable: true),
+                    Image2 = table.Column<string>(nullable: true),
+                    Image3 = table.Column<string>(nullable: true),
+                    Image4 = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Listing", x => x.ListingId);
+                    table.ForeignKey(
+                        name: "FK_Listing_SiteUsers_UserIdSiteUserId",
+                        column: x => x.UserIdSiteUserId,
+                        principalTable: "SiteUsers",
+                        principalColumn: "SiteUserId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "24d1ba22-31e6-479a-b379-367bd9dc4a90", "01f24479-2ea9-448b-8f14-6d228fa38193", "Admin", "ADMIN" },
-                    { "0125088d-b84f-49a2-869d-0df1ad3769f5", "009bd4d2-b2bb-4264-980c-68f6d4354311", "SiteUser", "SiteUser" }
+                    { "f10f2e8e-0512-4716-ab68-bcaa73c5ec21", "e4e52ddf-04a2-42f2-b107-0279d501389a", "Admin", "ADMIN" },
+                    { "dd502ca6-1b96-453f-9f43-114fe7b92f97", "1bebe1ab-96db-4afc-a6ca-5eeded9ec3f3", "SiteUser", "SiteUser" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Conditions",
+                columns: new[] { "ConditionId", "ConditionName" },
+                values: new object[,]
+                {
+                    { 1, "Excellent" },
+                    { 2, "Good" },
+                    { 3, "Needs Minor Repair" },
+                    { 4, "Needs Major Repair" },
+                    { 5, "Parts" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ListingTypes",
+                columns: new[] { "ListingTypeId", "ListingTypeName" },
+                values: new object[,]
+                {
+                    { 1, "BuyItNow" },
+                    { 2, "BuyItNow With Auction" },
+                    { 3, "Auction" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Makes",
+                columns: new[] { "MakeId", "MakeName" },
+                values: new object[,]
+                {
+                    { 9, "Roto-Press" },
+                    { 8, "Allied Gear" },
+                    { 7, "Aquaflex" },
+                    { 6, "Omet" },
+                    { 5, "MPS" },
+                    { 4, "Edale" },
+                    { 3, "Gallus" },
+                    { 2, "Nilpeter" },
+                    { 1, "Mark Andy" }
                 });
 
             migrationBuilder.InsertData(
@@ -217,7 +341,7 @@ namespace NarrowWebExchangeProj.Migrations
                     { 36, "OK", "Oklahoma" },
                     { 37, "OR", "Oregon" },
                     { 38, "PA", "Pennsylvania" },
-                    { 39, "RI", "Rhode Island" },
+                    { 47, "WA", "Washington" },
                     { 40, "SC", "South Carolina" },
                     { 41, "SD", "South Dakota" },
                     { 42, "TN", "Tennessee" },
@@ -225,12 +349,12 @@ namespace NarrowWebExchangeProj.Migrations
                     { 44, "UT", "Utah" },
                     { 45, "VT", "Vermont" },
                     { 46, "VA", "Virginia" },
-                    { 47, "WA", "Washington" },
+                    { 27, "NE", "Nebraska" },
                     { 48, "WV", "West Virginia" },
                     { 49, "WI", "Wisconsin" },
-                    { 27, "NE", "Nebraska" },
+                    { 39, "RI", "Rhode Island" },
                     { 26, "MT", "Montana" },
-                    { 25, "MO", "Missouri" },
+                    { 16, "KS", "Kansas" },
                     { 24, "MS", "Mississippi" },
                     { 1, "AL", "Alabama" },
                     { 2, "AK", "Alaska" },
@@ -247,7 +371,7 @@ namespace NarrowWebExchangeProj.Migrations
                     { 13, "IL", "Illinois" },
                     { 14, "IN", "Indiana" },
                     { 15, "IA", "Iowa" },
-                    { 16, "KS", "Kansas" },
+                    { 50, "WY", "Wyoming" },
                     { 17, "KY", "Kentucky" },
                     { 18, "LA", "Louisiana" },
                     { 19, "ME", "Maine" },
@@ -255,7 +379,7 @@ namespace NarrowWebExchangeProj.Migrations
                     { 21, "MA", "Massachusetts" },
                     { 22, "MI", "Michigan" },
                     { 23, "MN", "Minnesota" },
-                    { 50, "WY", "Wyoming" },
+                    { 25, "MO", "Missouri" },
                     { 51, "DC", "District of Columbia" }
                 });
 
@@ -299,6 +423,11 @@ namespace NarrowWebExchangeProj.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Listing_UserIdSiteUserId",
+                table: "Listing",
+                column: "UserIdSiteUserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_SiteUsers_IdentityUserId",
                 table: "SiteUsers",
                 column: "IdentityUserId");
@@ -322,13 +451,25 @@ namespace NarrowWebExchangeProj.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "SiteUsers");
+                name: "Conditions");
+
+            migrationBuilder.DropTable(
+                name: "Listing");
+
+            migrationBuilder.DropTable(
+                name: "ListingTypes");
+
+            migrationBuilder.DropTable(
+                name: "Makes");
 
             migrationBuilder.DropTable(
                 name: "States");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "SiteUsers");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

@@ -48,15 +48,15 @@ namespace NarrowWebExchangeProj.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2509cdab-94de-470e-8dfb-1b6419d145b9",
-                            ConcurrencyStamp = "4ace5bb3-c54a-480e-8238-3a480a983bbb",
+                            Id = "f10f2e8e-0512-4716-ab68-bcaa73c5ec21",
+                            ConcurrencyStamp = "e4e52ddf-04a2-42f2-b107-0279d501389a",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "8b6e9d89-db60-49f5-931a-5088de3d4d70",
-                            ConcurrencyStamp = "fb171a22-b6e5-4a3e-9628-6675471aec73",
+                            Id = "dd502ca6-1b96-453f-9f43-114fe7b92f97",
+                            ConcurrencyStamp = "1bebe1ab-96db-4afc-a6ca-5eeded9ec3f3",
                             Name = "SiteUser",
                             NormalizedName = "SiteUser"
                         });

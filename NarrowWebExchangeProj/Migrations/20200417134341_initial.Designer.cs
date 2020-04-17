@@ -10,7 +10,7 @@ using NarrowWebExchangeProj.Data;
 namespace NarrowWebExchangeProj.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200415170448_initial")]
+    [Migration("20200417134341_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,15 +50,15 @@ namespace NarrowWebExchangeProj.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "24d1ba22-31e6-479a-b379-367bd9dc4a90",
-                            ConcurrencyStamp = "01f24479-2ea9-448b-8f14-6d228fa38193",
+                            Id = "f10f2e8e-0512-4716-ab68-bcaa73c5ec21",
+                            ConcurrencyStamp = "e4e52ddf-04a2-42f2-b107-0279d501389a",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "0125088d-b84f-49a2-869d-0df1ad3769f5",
-                            ConcurrencyStamp = "009bd4d2-b2bb-4264-980c-68f6d4354311",
+                            Id = "dd502ca6-1b96-453f-9f43-114fe7b92f97",
+                            ConcurrencyStamp = "1bebe1ab-96db-4afc-a6ca-5eeded9ec3f3",
                             Name = "SiteUser",
                             NormalizedName = "SiteUser"
                         });
@@ -231,6 +231,243 @@ namespace NarrowWebExchangeProj.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("NarrowWebExchangeProj.Models.Condition", b =>
+                {
+                    b.Property<int>("ConditionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ConditionName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ConditionId");
+
+                    b.ToTable("Conditions");
+
+                    b.HasData(
+                        new
+                        {
+                            ConditionId = 1,
+                            ConditionName = "Excellent"
+                        },
+                        new
+                        {
+                            ConditionId = 2,
+                            ConditionName = "Good"
+                        },
+                        new
+                        {
+                            ConditionId = 3,
+                            ConditionName = "Needs Minor Repair"
+                        },
+                        new
+                        {
+                            ConditionId = 4,
+                            ConditionName = "Needs Major Repair"
+                        },
+                        new
+                        {
+                            ConditionId = 5,
+                            ConditionName = "Parts"
+                        });
+                });
+
+            modelBuilder.Entity("NarrowWebExchangeProj.Models.Listing", b =>
+                {
+                    b.Property<int>("ListingId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BuyItNowPrice")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Commission")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Condition")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CurrentBid")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DueSeller")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FeaturesAndComments")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("HighBidPrice")
+                        .HasColumnType("int");
+
+                    b.Property<int>("HighBidUserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Hours")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Image1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image4")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ListingDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ListingDays")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ListingType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Make")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Model")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("NumColors")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NumDieStations")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NumberOfBids")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("PaymentReceived")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("ReserveMet")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ReservePrice")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SellerUserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ToolingIncluded")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("UserIdSiteUserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Width")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
+
+                    b.HasKey("ListingId");
+
+                    b.HasIndex("UserIdSiteUserId");
+
+                    b.ToTable("Listing");
+                });
+
+            modelBuilder.Entity("NarrowWebExchangeProj.Models.ListingType", b =>
+                {
+                    b.Property<int>("ListingTypeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ListingTypeName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ListingTypeId");
+
+                    b.ToTable("ListingTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            ListingTypeId = 1,
+                            ListingTypeName = "BuyItNow"
+                        },
+                        new
+                        {
+                            ListingTypeId = 2,
+                            ListingTypeName = "BuyItNow With Auction"
+                        },
+                        new
+                        {
+                            ListingTypeId = 3,
+                            ListingTypeName = "Auction"
+                        });
+                });
+
+            modelBuilder.Entity("NarrowWebExchangeProj.Models.Make", b =>
+                {
+                    b.Property<int>("MakeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("MakeName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MakeId");
+
+                    b.ToTable("Makes");
+
+                    b.HasData(
+                        new
+                        {
+                            MakeId = 1,
+                            MakeName = "Mark Andy"
+                        },
+                        new
+                        {
+                            MakeId = 2,
+                            MakeName = "Nilpeter"
+                        },
+                        new
+                        {
+                            MakeId = 3,
+                            MakeName = "Gallus"
+                        },
+                        new
+                        {
+                            MakeId = 4,
+                            MakeName = "Edale"
+                        },
+                        new
+                        {
+                            MakeId = 5,
+                            MakeName = "MPS"
+                        },
+                        new
+                        {
+                            MakeId = 6,
+                            MakeName = "Omet"
+                        },
+                        new
+                        {
+                            MakeId = 7,
+                            MakeName = "Aquaflex"
+                        },
+                        new
+                        {
+                            MakeId = 8,
+                            MakeName = "Allied Gear"
+                        },
+                        new
+                        {
+                            MakeId = 9,
+                            MakeName = "Roto-Press"
+                        });
                 });
 
             modelBuilder.Entity("NarrowWebExchangeProj.Models.SiteUser", b =>
@@ -646,6 +883,13 @@ namespace NarrowWebExchangeProj.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("NarrowWebExchangeProj.Models.Listing", b =>
+                {
+                    b.HasOne("NarrowWebExchangeProj.Models.SiteUser", "UserId")
+                        .WithMany()
+                        .HasForeignKey("UserIdSiteUserId");
                 });
 
             modelBuilder.Entity("NarrowWebExchangeProj.Models.SiteUser", b =>
