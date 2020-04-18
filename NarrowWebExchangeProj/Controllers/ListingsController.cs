@@ -106,6 +106,10 @@ namespace NarrowWebExchangeProj.Controllers
                 var siteUserInDb = _context.SiteUsers.Where(m => m.IdentityUserId == userId).FirstOrDefault();
                 listing.SellerUserId = siteUserInDb.SiteUserId;
                 listing.ListingType = "Auction";
+                listing.Image1 = "~/images/" + listing.Image1;
+                listing.Image2 = "~/images/" + listing.Image2;
+                listing.Image3 = "~/images/" + listing.Image3;
+                listing.Image4 = "~/images/" + listing.Image4;
 
                 _context.Add(listing);
                 await _context.SaveChangesAsync();
@@ -135,6 +139,10 @@ namespace NarrowWebExchangeProj.Controllers
                 var siteUserInDb = _context.SiteUsers.Where(m => m.IdentityUserId == userId).FirstOrDefault();
                 listing.SellerUserId = siteUserInDb.SiteUserId;
                 listing.ListingType = "BuyItNowAuction";
+                listing.Image1 = "~/images/" + listing.Image1;
+                listing.Image2 = "~/images/" + listing.Image2;
+                listing.Image3 = "~/images/" + listing.Image3;
+                listing.Image4 = "~/images/" + listing.Image4;
 
                 _context.Add(listing);
                 await _context.SaveChangesAsync();
