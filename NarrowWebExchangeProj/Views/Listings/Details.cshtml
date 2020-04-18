@@ -158,8 +158,9 @@
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Image1)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Image1)
+        <dd class="col-sm-10">
+            <img src="@Url.Content(Model.Image1)" alt="Sample Image" style="height:50px;width:100px;" />
+            @*@Html.DisplayFor(model => model.Image1)*@
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Image2)
