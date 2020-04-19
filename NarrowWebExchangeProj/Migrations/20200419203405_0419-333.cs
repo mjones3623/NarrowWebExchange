@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NarrowWebExchangeProj.Migrations
 {
-    public partial class initial : Migration
+    public partial class _0419333 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -83,6 +83,30 @@ namespace NarrowWebExchangeProj.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Makes", x => x.MakeId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Searches",
+                columns: table => new
+                {
+                    SearchId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SearchSiteUserId = table.Column<int>(nullable: false),
+                    SearchMake = table.Column<string>(nullable: true),
+                    SearchModel = table.Column<string>(nullable: true),
+                    SearchMinHours = table.Column<int>(nullable: false),
+                    SearchMaxHours = table.Column<int>(nullable: false),
+                    SearchFromYear = table.Column<int>(nullable: false),
+                    SearchToYear = table.Column<int>(nullable: false),
+                    SearchMinNumColors = table.Column<int>(nullable: false),
+                    SearchMaxNumColors = table.Column<int>(nullable: false),
+                    SearchMinNumDieStations = table.Column<int>(nullable: false),
+                    SearchMaxNumDieStations = table.Column<int>(nullable: false),
+                    SearchListingType = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Searches", x => x.SearchId);
                 });
 
             migrationBuilder.CreateTable(
@@ -283,8 +307,8 @@ namespace NarrowWebExchangeProj.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "f10f2e8e-0512-4716-ab68-bcaa73c5ec21", "e4e52ddf-04a2-42f2-b107-0279d501389a", "Admin", "ADMIN" },
-                    { "dd502ca6-1b96-453f-9f43-114fe7b92f97", "1bebe1ab-96db-4afc-a6ca-5eeded9ec3f3", "SiteUser", "SiteUser" }
+                    { "adcdd58a-0fd4-473a-b6fd-c739efc6c1ad", "47bc0c1d-ca2e-4106-83e9-2903047f2504", "Admin", "ADMIN" },
+                    { "cc9bfb42-0753-4627-a728-19cd5bb8c14f", "624f09ac-d549-49de-b571-44a5f2398d25", "SiteUser", "SiteUser" }
                 });
 
             migrationBuilder.InsertData(
@@ -461,6 +485,9 @@ namespace NarrowWebExchangeProj.Migrations
 
             migrationBuilder.DropTable(
                 name: "Makes");
+
+            migrationBuilder.DropTable(
+                name: "Searches");
 
             migrationBuilder.DropTable(
                 name: "States");

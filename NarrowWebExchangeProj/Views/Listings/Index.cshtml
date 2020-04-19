@@ -10,6 +10,10 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -93,16 +97,16 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                <img src="@Url.Content(item.Image1)" style="height:50px;width:100px;" alt="NarrowWebExchange.com" />
+                <img src="@Url.Content(item.Image1)" style="height:50px;width:100px;" alt="No Image" />
             </td>
             <td>
-                <img src="@Url.Content(item.Image2)" style="height:50px;width:100px;" alt="NarrowWebExchange.com"/>
+                <img src="@Url.Content(item.Image2)" style="height:50px;width:100px;" alt="No Image"/>
             </td>
             <td>
-                <img src="@Url.Content(item.Image3)" style="height:50px;width:100px;" alt="NarrowWebExchange.com"/>
+                <img src="@Url.Content(item.Image3)" style="height:50px;width:100px;" alt="No Image"/>
             </td>
             <td>
-                <img src="@Url.Content(item.Image4)" style="height:50px;width:100px;" alt="NarrowWebExchange.com"/>
+                <img src="@Url.Content(item.Image4)" style="height:50px;width:100px;" alt="No Image"/>
             </td>
 
             <td>

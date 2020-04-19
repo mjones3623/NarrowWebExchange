@@ -114,6 +114,8 @@ namespace NarrowWebExchangeProj.Data
                     new State { StateId = 51, StateName = "District of Columbia", StateAbbreviation = "DC" }
                 );
         }
+        
+        public DbSet<Models.Search> Searches { get; set; }
         public DbSet<Models.Condition> Conditions { get; set; }
         public DbSet<Models.ListingType> ListingTypes { get; set; }
         public DbSet<Models.State> States { get; set; }

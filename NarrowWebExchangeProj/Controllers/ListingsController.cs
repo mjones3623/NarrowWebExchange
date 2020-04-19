@@ -21,6 +21,12 @@ namespace NarrowWebExchangeProj.Controllers
             _context = context;
         }
         // GET: Choose Listing Type Page
+        public IActionResult Search()
+        {
+
+            return View();
+        }
+        // GET: Choose Listing Type Page
         public IActionResult ChooseListingType()
         {
 

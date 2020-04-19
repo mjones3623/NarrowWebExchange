@@ -1,0 +1,87 @@
+﻿@model NarrowWebExchangeProj.Models.Search
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Search</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SearchId" />
+            <div class="form-group">
+                <label asp-for="SearchSiteUserId" class="control-label"></label>
+                <input asp-for="SearchSiteUserId" class="form-control" />
+                <span asp-validation-for="SearchSiteUserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SearchMake" class="control-label"></label>
+                <input asp-for="SearchMake" class="form-control" />
+                <span asp-validation-for="SearchMake" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SearchModel" class="control-label"></label>
+                <input asp-for="SearchModel" class="form-control" />
+                <span asp-validation-for="SearchModel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SearchMinHours" class="control-label"></label>
+                <input asp-for="SearchMinHours" class="form-control" />
+                <span asp-validation-for="SearchMinHours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SearchMaxHours" class="control-label"></label>
+                <input asp-for="SearchMaxHours" class="form-control" />
+                <span asp-validation-for="SearchMaxHours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SearchFromYear" class="control-label"></label>
+                <input asp-for="SearchFromYear" class="form-control" />
+                <span asp-validation-for="SearchFromYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SearchToYear" class="control-label"></label>
+                <input asp-for="SearchToYear" class="form-control" />
+                <span asp-validation-for="SearchToYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SearchMinNumColors" class="control-label"></label>
+                <input asp-for="SearchMinNumColors" class="form-control" />
+                <span asp-validation-for="SearchMinNumColors" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SearchMaxNumColors" class="control-label"></label>
+                <input asp-for="SearchMaxNumColors" class="form-control" />
+                <span asp-validation-for="SearchMaxNumColors" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SearchMinNumDieStations" class="control-label"></label>
+                <input asp-for="SearchMinNumDieStations" class="form-control" />
+                <span asp-validation-for="SearchMinNumDieStations" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SearchMaxNumDieStations" class="control-label"></label>
+                <input asp-for="SearchMaxNumDieStations" class="form-control" />
+                <span asp-validation-for="SearchMaxNumDieStations" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SearchListingType" class="control-label"></label>
+                <input asp-for="SearchListingType" class="form-control" />
+                <span asp-validation-for="SearchListingType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

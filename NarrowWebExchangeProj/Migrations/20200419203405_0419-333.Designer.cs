@@ -10,8 +10,8 @@ using NarrowWebExchangeProj.Data;
 namespace NarrowWebExchangeProj.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200417134341_initial")]
-    partial class initial
+    [Migration("20200419203405_0419-333")]
+    partial class _0419333
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -50,15 +50,15 @@ namespace NarrowWebExchangeProj.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f10f2e8e-0512-4716-ab68-bcaa73c5ec21",
-                            ConcurrencyStamp = "e4e52ddf-04a2-42f2-b107-0279d501389a",
+                            Id = "adcdd58a-0fd4-473a-b6fd-c739efc6c1ad",
+                            ConcurrencyStamp = "47bc0c1d-ca2e-4106-83e9-2903047f2504",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "dd502ca6-1b96-453f-9f43-114fe7b92f97",
-                            ConcurrencyStamp = "1bebe1ab-96db-4afc-a6ca-5eeded9ec3f3",
+                            Id = "cc9bfb42-0753-4627-a728-19cd5bb8c14f",
+                            ConcurrencyStamp = "624f09ac-d549-49de-b571-44a5f2398d25",
                             Name = "SiteUser",
                             NormalizedName = "SiteUser"
                         });
@@ -468,6 +468,54 @@ namespace NarrowWebExchangeProj.Migrations
                             MakeId = 9,
                             MakeName = "Roto-Press"
                         });
+                });
+
+            modelBuilder.Entity("NarrowWebExchangeProj.Models.Search", b =>
+                {
+                    b.Property<int>("SearchId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("SearchFromYear")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SearchListingType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SearchMake")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SearchMaxHours")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SearchMaxNumColors")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SearchMaxNumDieStations")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SearchMinHours")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SearchMinNumColors")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SearchMinNumDieStations")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SearchModel")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SearchSiteUserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SearchToYear")
+                        .HasColumnType("int");
+
+                    b.HasKey("SearchId");
+
+                    b.ToTable("Searches");
                 });
 
             modelBuilder.Entity("NarrowWebExchangeProj.Models.SiteUser", b =>

@@ -1,0 +1,102 @@
+﻿@model IEnumerable<NarrowWebExchangeProj.Models.Search>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SearchSiteUserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SearchMake)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SearchModel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SearchMinHours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SearchMaxHours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SearchFromYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SearchToYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SearchMinNumColors)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SearchMaxNumColors)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SearchMinNumDieStations)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SearchMaxNumDieStations)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SearchListingType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SearchSiteUserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SearchMake)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SearchModel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SearchMinHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SearchMaxHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SearchFromYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SearchToYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SearchMinNumColors)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SearchMaxNumColors)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SearchMinNumDieStations)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SearchMaxNumDieStations)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SearchListingType)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SearchId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SearchId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SearchId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
