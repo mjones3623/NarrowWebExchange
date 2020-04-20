@@ -47,6 +47,9 @@ namespace NarrowWebExchangeProj.Controllers
         // GET: Searches/Create
         public IActionResult Create()
         {
+            ViewData["Makes"] = new SelectList(_context.Makes, "MakeName", "MakeName");
+            ViewData["ListingType"] = new SelectList(_context.ListingTypes, "ListingTypeName", "ListingTypeName");
+
             return View();
         }
 
