@@ -20,7 +20,33 @@ namespace NarrowWebExchangeProj.Controllers
         {
             _context = context;
         }
-        // GET: Choose Listing Type Page
+        // GET: Search
+
+        public IActionResult SearchResults()
+        {
+            List<Listing> searchResult = new List<Listing>();
+
+           
+
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var siteUserInDb = _context.SiteUsers.Where(m => m.IdentityUserId == userId).FirstOrDefault();
+            var searchInDb = _context.Searches.OrderByDescending(s => s.SearchId).FirstOrDefault();
+
+            searchResult = _context.Listing
+            .Where(e => ((searchInDb.SearchMake == e.Make) && (searchInDb.SearchModel == e.Model) &&
+            (e.Hours >= searchInDb.SearchMinHours && e.Hours <= searchInDb.SearchMaxHours) &&
+            (e.Year >= searchInDb.SearchFromYear && e.Year <= searchInDb.SearchToYear) &&
+            (e.NumColors >= searchInDb.SearchMinNumColors && e.NumColors <= searchInDb.SearchMaxNumColors) &&
+            (e.NumDieStations >= searchInDb.SearchMinNumDieStations && e.NumDieStations <= searchInDb.SearchMaxNumDieStations) &&
+            (e.ListingType == searchInDb.SearchListingType))).ToList();
+
+            
+            
+            return View(searchResult);
+        }
+
+        // GET: Search
+
         public IActionResult Search()
         {
 

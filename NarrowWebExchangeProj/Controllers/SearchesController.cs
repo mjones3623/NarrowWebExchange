@@ -68,7 +68,12 @@ namespace NarrowWebExchangeProj.Controllers
 
                 _context.Add(search);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                
+
+                return RedirectToAction("SearchResults","Listings" );
+
+                
             }
             return View(search);
         }
