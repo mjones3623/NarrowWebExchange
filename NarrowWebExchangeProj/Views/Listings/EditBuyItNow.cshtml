@@ -1,0 +1,96 @@
+﻿@model NarrowWebExchangeProj.Models.Listing
+
+@{
+    ViewData["Title"] = "EditBuyItNow";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details for this BuyItNow Listing</h1>
+
+<h4>Listing</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditBuyItNow">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ListingId" />
+             <h4>To Purchase, Check Box and Hit BuyItNow Button</h4>          
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ItemSold" /> 
+                    Check This Box To BuyItNow!
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="BuyItNow" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <img src= "@Url.Content(Model.Image1)" style="height:160px;width:210px;" alt="no image" />
+    </div>
+    <div class="col-9">
+        <table id="searchTable" style="width:100%">
+            <tr>
+                <th>Listing Type</th>
+                <th>BuyItNowPrice</th>
+                <th>Reserve Price</th>
+                <th>Current Bid</th>
+                <th>Number of Bids</th>
+                <th>Reserve Met?</th>
+            </tr>
+            <tr>
+                <td>@Html.DisplayFor(model => model.ListingType)</td>
+                <td>@Html.DisplayFor(model => model.BuyItNowPrice)</td>
+                <td>@Html.DisplayFor(model => model.ReservePrice)</td>
+                <td>@Html.DisplayFor(model => model.CurrentBid)</td>
+                <td>@Html.DisplayFor(model => model.NumberOfBids)</td>
+                <td>@Html.DisplayFor(model => model.ReserveMet)</td>
+            </tr>
+        </table>
+        <table id="searchTable" style="width:100%">
+            <tr>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Width</th>
+                <th>Hours</th>
+                <th>Year</th>
+                <th>Print Stations</th>
+                <th>Die Stations</th>
+                <th>Condition</th>
+            </tr>
+            <tr>
+                <td>@Html.DisplayFor(model => model.Make)</td>
+                <td>@Html.DisplayFor(model => model.Model)</td>
+                <td>@Html.DisplayFor(model => model.Width)</td>
+                <td>@Html.DisplayFor(model => model.Hours)</td>
+                <td>@Html.DisplayFor(model => model.Year)</td>
+                <td>@Html.DisplayFor(model => model.NumColors)</td>
+                <td>@Html.DisplayFor(model => model.NumDieStations)</td>
+                <td>@Html.DisplayFor(model => model.Condition)</td>
+            </tr>
+        </table>
+    </div>
+    </div>
+<hr />
+<div class="row">
+    
+        <table id="searchTable" style="width:100%">
+            <tr>
+                <th>Tooling Included</th>
+                <th>Features and Seller Comments</th>
+            </tr>
+            <tr>
+                <td>@Html.DisplayFor(model => model.ToolingIncluded)</td>
+                <td>@Html.DisplayFor(model => model.FeaturesAndComments)</td>
+            </tr>
+        </table>
+    
+</div>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+

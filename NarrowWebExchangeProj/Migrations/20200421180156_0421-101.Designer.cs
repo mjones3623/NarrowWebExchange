@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NarrowWebExchangeProj.Data;
 
 namespace NarrowWebExchangeProj.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200421180156_0421-101")]
+    partial class _0421101
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,15 +50,15 @@ namespace NarrowWebExchangeProj.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "eaeeb706-7627-433d-9a89-5dff36eaaee1",
-                            ConcurrencyStamp = "c75661c6-4cb8-44c3-83a8-de95c0e81b72",
+                            Id = "982ba637-4472-4d3d-b66a-dc110ac87c2f",
+                            ConcurrencyStamp = "d7d906bf-c822-4e9e-aea1-a62d41ddf120",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "326477f5-6793-43ff-9efd-fc55be3cb3e5",
-                            ConcurrencyStamp = "c8089fe9-24c8-42b3-a273-3d29fe5f7fe2",
+                            Id = "5748b51a-ea09-470c-bd68-4ef4911acde0",
+                            ConcurrencyStamp = "7e7044b7-8875-49cf-a32b-c7d8d08bf348",
                             Name = "SiteUser",
                             NormalizedName = "SiteUser"
                         });
@@ -357,9 +359,6 @@ namespace NarrowWebExchangeProj.Migrations
 
                     b.Property<int>("SellerUserId")
                         .HasColumnType("int");
-
-                    b.Property<bool>("TimedOurNoSale")
-                        .HasColumnType("bit");
 
                     b.Property<string>("ToolingIncluded")
                         .HasColumnType("nvarchar(max)");

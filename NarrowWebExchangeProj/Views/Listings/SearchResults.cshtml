@@ -14,17 +14,24 @@
  <div class="container">
     <div class="row">
         <div class="column-md-12">
-            <center>
-                <tq>
-                    <a asp-action="Edit" asp-route-id="@item.ListingId" id="details">See Details and Buy or Bid on this Item</a> |
-                </tq>
-            </center>
+            @if (item.ListingType == "BuyItNow")
+            {
+                <a asp-action="EditBuyItNow" asp-route-id="@item.ListingId" id="details">See Details and Buy or Bid on this Item</a>
+            }
+            else if (item.ListingType == "Auction")
+            {
+                <a asp-action="EditAuction" asp-route-id="@item.ListingId" id="details">See Details and Buy or Bid on this Item</a>
+            }
+            else
+            {
+                <a asp-action="EditBuyItNowAuction" asp-route-id="@item.ListingId" id="details">See Details and Buy or Bid on this Item</a>
+            }
         </div>
     </div>
      <hr />
     <div class="row">
         <div class="col-3">
-            <img src="@Url.Content(item.Image1)" style="height:160px;width:190px;" alt="No Image" />
+            <img src="@Url.Content(item.Image1)" style="height:160px;width:210px;" alt="No Image" />
         </div>
         <div class="col-9">
             <table id="searchTable" style="width:100%">

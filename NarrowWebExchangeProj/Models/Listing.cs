@@ -51,6 +51,8 @@ namespace NarrowWebExchangeProj.Models
         public int NumberOfBids { get; set; }
         public int HighBidPrice { get; set; }
         public int HighBidUserId { get; set; }
+        public bool ItemSold { get; set; }
+        public bool TimedOurNoSale { get; set; }
         public bool ReserveMet { get; set; }
         public int Commission { get; set; }
         public int DueSeller { get; set; }

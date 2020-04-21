@@ -235,6 +235,164 @@ namespace NarrowWebExchangeProj.Controllers
             return View(listing);
         }
 
+        // GET: Listings/Edit/5
+        public async Task<IActionResult> EditBuyItNow(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var listing = await _context.Listing.FindAsync(id);
+            if (listing == null)
+            {
+                return NotFound();
+            }
+            return View(listing);
+        }
+
+        // POST: Listings/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditBuyItNow(int id, [Bind("HighBidPrice")] Listing listing)
+        {
+            
+            var ListingInDb = _context.Listing.Where(m => m.ListingId == listing.ListingId).FirstOrDefault();
+            listing = ListingInDb;
+
+
+            if (id != listing.ListingId)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(listing);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ListingExists(listing.ListingId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(listing);
+        }
+
+        // GET: Listings/Edit/5
+        public async Task<IActionResult> EditAuction(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var listing = await _context.Listing.FindAsync(id);
+            if (listing == null)
+            {
+                return NotFound();
+            }
+            return View(listing);
+        }
+
+        // POST: Listings/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditAuction(int id, [Bind("ListingId,SellerUserId,Make,Model,Hours,Year,Width,NumColors,NumDieStations,Condition,ToolingIncluded,FeaturesAndComments,ListingType,BuyItNowPrice,ReservePrice,ListingDateTime,ListingDays,CurrentBid,NumberOfBids,HighBidPrice,HighBidUserId,ReserveMet,Commission,DueSeller,PaymentReceived,Image1,Image2,Image3,Image4")] Listing listing)
+        {
+            if (id != listing.ListingId)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(listing);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ListingExists(listing.ListingId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(listing);
+        }
+
+        // GET: Listings/Edit/5
+        public async Task<IActionResult> EditBuyItNowAuction(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var listing = await _context.Listing.FindAsync(id);
+            if (listing == null)
+            {
+                return NotFound();
+            }
+            return View(listing);
+        }
+
+        // POST: Listings/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditBuyItNowAuction(int id, [Bind("ListingId,SellerUserId,Make,Model,Hours,Year,Width,NumColors,NumDieStations,Condition,ToolingIncluded,FeaturesAndComments,ListingType,BuyItNowPrice,ReservePrice,ListingDateTime,ListingDays,CurrentBid,NumberOfBids,HighBidPrice,HighBidUserId,ReserveMet,Commission,DueSeller,PaymentReceived,Image1,Image2,Image3,Image4")] Listing listing)
+        {
+            if (id != listing.ListingId)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(listing);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ListingExists(listing.ListingId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(listing);
+        }
+
         // GET: Listings/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
