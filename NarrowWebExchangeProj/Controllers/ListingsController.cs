@@ -34,6 +34,7 @@ namespace NarrowWebExchangeProj.Controllers
 
             searchResult = _context.Listing
             .Where(e => ((searchInDb.SearchMake == e.Make) && (searchInDb.SearchModel == e.Model) &&
+            (e.Width >= searchInDb.SearchMinWidth && e.Width <= searchInDb.SearchMaxWidth) &&
             (e.Hours >= searchInDb.SearchMinHours && e.Hours <= searchInDb.SearchMaxHours) &&
             (e.Year >= searchInDb.SearchFromYear && e.Year <= searchInDb.SearchToYear) &&
             (e.NumColors >= searchInDb.SearchMinNumColors && e.NumColors <= searchInDb.SearchMaxNumColors) &&

@@ -13,7 +13,7 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            
+
             <div class="form-group">
                 <label asp-for="SearchMake" class="control-label">Make</label>
                 <select asp-for="SearchMake" class="form-control" asp-items="ViewBag.Makes"></select>
@@ -22,6 +22,16 @@
                 <label asp-for="SearchModel" class="control-label"></label>
                 <input asp-for="SearchModel" class="form-control" />
                 <span asp-validation-for="SearchModel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SearchMinWidth" class="control-label"></label>
+                <input asp-for="SearchMinWidth" class="form-control" />
+                <span asp-validation-for="SearchMinWidth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SearchMaxWidth" class="control-label"></label>
+                <input asp-for="SearchMaxWidth" class="form-control" />
+                <span asp-validation-for="SearchMaxWidth" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="SearchMinHours" class="control-label"></label>

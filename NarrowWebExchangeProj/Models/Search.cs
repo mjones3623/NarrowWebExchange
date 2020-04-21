@@ -14,6 +14,10 @@ namespace NarrowWebExchangeProj.Models
         public string SearchMake { get; set; }
         [Display(Name = "Model")]
         public string SearchModel { get; set; }
+        [Display(Name = "Min Width")]
+        public int SearchMinWidth { get; set; }
+        [Display(Name = "MaxWidth")]
+        public int SearchMaxWidth { get; set; }
         [Display(Name = "Min Hours")]
         public int SearchMinHours { get; set; }
         [Display(Name = "Max Hours")]

@@ -70,3 +70,27 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+#searchTable th {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: center;
+    background-color: #163237;
+    color: #d7a657;
+    
+}
+table {
+    border-collapse: collapse;
+}
+
+table, td, th {
+    border: 1px solid black;
+    padding:8px;
+    text-align:center;
+   
+}
+#details {
+    background-color: #163237;
+    color: #d7a657;
+    padding:8px
+    
+}

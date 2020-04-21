@@ -58,7 +58,7 @@ namespace NarrowWebExchangeProj.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SearchId,SearchSiteUserId,SearchMake,SearchModel,SearchMinHours,SearchMaxHours,SearchFromYear,SearchToYear,SearchMinNumColors,SearchMaxNumColors,SearchMinNumDieStations,SearchMaxNumDieStations,SearchListingType")] Search search)
+        public async Task<IActionResult> Create([Bind("SearchId,SearchSiteUserId,SearchMake,SearchModel,SearchMinWidth,SearchMaxWidth,SearchMinHours,SearchMaxHours,SearchFromYear,SearchToYear,SearchMinNumColors,SearchMaxNumColors,SearchMinNumDieStations,SearchMaxNumDieStations,SearchListingType")] Search search)
         {
             if (ModelState.IsValid)
             {
