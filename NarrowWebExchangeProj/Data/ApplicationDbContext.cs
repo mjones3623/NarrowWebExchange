@@ -115,13 +115,13 @@ namespace NarrowWebExchangeProj.Data
                 );
         }
         
-        public DbSet<Models.Search> Searches { get; set; }
-        public DbSet<Models.Condition> Conditions { get; set; }
-        public DbSet<Models.ListingType> ListingTypes { get; set; }
-        public DbSet<Models.State> States { get; set; }
-        public DbSet<Models.SiteUser> SiteUsers { get; set; }
-        public DbSet<Models.Make> Makes { get; set; }
-        public DbSet<NarrowWebExchangeProj.Models.Listing> Listing { get; set; }
+        public DbSet<Search> Searches { get; set; }
+        public DbSet<Condition> Conditions { get; set; }
+        public DbSet<ListingType> ListingTypes { get; set; }
+        public DbSet<State> States { get; set; }
+        public DbSet<SiteUser> SiteUsers { get; set; }
+        public DbSet<Make> Makes { get; set; }
+        public DbSet<Listing> Listing { get; set; }
     }
     
 

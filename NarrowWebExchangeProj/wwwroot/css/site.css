@@ -13,13 +13,13 @@ a {
 }
 
 .btn-primary {
-    color: #d7a657;
+    color: #dbcc9a;
     background-color: #163237;
     border-color: #1861ac;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    color: #d7a657;
+    color: #dbcc9a;
     background-color: #163237;
     border-color: #1861ac;
 }
@@ -75,11 +75,12 @@ body {
     padding-bottom: 8px;
     text-align: center;
     background-color: #163237;
-    color: #d7a657;
+    color: #dbcc9a;
     
 }
 table {
     border-collapse: collapse;
+    border-radius: 8px;
 }
 
 table, td, th {
@@ -89,10 +90,10 @@ table, td, th {
    
 }
 #details {
+    border-radius: 10px;
     background-color: #163237;
-    color: #d7a657;
-    padding:8px
-    
+    color: #dbcc9a;
+    padding: 8px
 }
 #searchTable{
     padding-top:8px;

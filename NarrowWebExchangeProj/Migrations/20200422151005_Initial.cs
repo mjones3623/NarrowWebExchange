@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NarrowWebExchangeProj.Migrations
 {
-    public partial class _0419333 : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -94,6 +94,8 @@ namespace NarrowWebExchangeProj.Migrations
                     SearchSiteUserId = table.Column<int>(nullable: false),
                     SearchMake = table.Column<string>(nullable: true),
                     SearchModel = table.Column<string>(nullable: true),
+                    SearchMinWidth = table.Column<int>(nullable: false),
+                    SearchMaxWidth = table.Column<int>(nullable: false),
                     SearchMinHours = table.Column<int>(nullable: false),
                     SearchMaxHours = table.Column<int>(nullable: false),
                     SearchFromYear = table.Column<int>(nullable: false),
@@ -278,10 +280,13 @@ namespace NarrowWebExchangeProj.Migrations
                     ReservePrice = table.Column<int>(nullable: false),
                     ListingDateTime = table.Column<DateTime>(nullable: false),
                     ListingDays = table.Column<int>(nullable: false),
+                    ListingEndDateTime = table.Column<DateTime>(nullable: false),
                     CurrentBid = table.Column<int>(nullable: false),
                     NumberOfBids = table.Column<int>(nullable: false),
                     HighBidPrice = table.Column<int>(nullable: false),
                     HighBidUserId = table.Column<int>(nullable: false),
+                    ItemSold = table.Column<bool>(nullable: false),
+                    TimedOurNoSale = table.Column<bool>(nullable: false),
                     ReserveMet = table.Column<bool>(nullable: false),
                     Commission = table.Column<int>(nullable: false),
                     DueSeller = table.Column<int>(nullable: false),
@@ -307,8 +312,8 @@ namespace NarrowWebExchangeProj.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "adcdd58a-0fd4-473a-b6fd-c739efc6c1ad", "47bc0c1d-ca2e-4106-83e9-2903047f2504", "Admin", "ADMIN" },
-                    { "cc9bfb42-0753-4627-a728-19cd5bb8c14f", "624f09ac-d549-49de-b571-44a5f2398d25", "SiteUser", "SiteUser" }
+                    { "e6678d3e-7b28-482b-9a27-f25cf4afd61b", "f3aad25f-2d5e-46ac-b216-2d8394575f97", "Admin", "ADMIN" },
+                    { "7c46eb81-bd84-4bea-8c4b-f9d14328d59a", "7069754f-b53d-4fb5-89c7-f9cc1f5fb03f", "SiteUser", "SiteUser" }
                 });
 
             migrationBuilder.InsertData(

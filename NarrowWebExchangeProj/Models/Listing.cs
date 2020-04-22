@@ -47,6 +47,7 @@ namespace NarrowWebExchangeProj.Models
         
         public int ListingDays { get; set; }
         //No user input below here
+        public DateTime ListingEndDateTime { get; set; }
         public int CurrentBid { get; set; }        
         public int NumberOfBids { get; set; }
         public int HighBidPrice { get; set; }

@@ -48,15 +48,15 @@ namespace NarrowWebExchangeProj.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "eaeeb706-7627-433d-9a89-5dff36eaaee1",
-                            ConcurrencyStamp = "c75661c6-4cb8-44c3-83a8-de95c0e81b72",
+                            Id = "e6678d3e-7b28-482b-9a27-f25cf4afd61b",
+                            ConcurrencyStamp = "f3aad25f-2d5e-46ac-b216-2d8394575f97",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "326477f5-6793-43ff-9efd-fc55be3cb3e5",
-                            ConcurrencyStamp = "c8089fe9-24c8-42b3-a273-3d29fe5f7fe2",
+                            Id = "7c46eb81-bd84-4bea-8c4b-f9d14328d59a",
+                            ConcurrencyStamp = "7069754f-b53d-4fb5-89c7-f9cc1f5fb03f",
                             Name = "SiteUser",
                             NormalizedName = "SiteUser"
                         });
@@ -327,6 +327,9 @@ namespace NarrowWebExchangeProj.Migrations
 
                     b.Property<int>("ListingDays")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("ListingEndDateTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ListingType")
                         .HasColumnType("nvarchar(max)");

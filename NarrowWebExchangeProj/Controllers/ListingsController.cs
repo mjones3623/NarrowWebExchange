@@ -102,8 +102,12 @@ namespace NarrowWebExchangeProj.Controllers
         {
             if (ModelState.IsValid)
             {
+                              
                 var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
                 var siteUserInDb = _context.SiteUsers.Where(m => m.IdentityUserId == userId).FirstOrDefault();
+
+                listing.ListingEndDateTime = listing.ListingDateTime.AddDays(listing.ListingDays);
+
                 listing.SellerUserId = siteUserInDb.SiteUserId;
                 listing.ListingType = "BuyItNow";
                 listing.Image1 = "~/images/" + listing.Image1;
@@ -137,6 +141,9 @@ namespace NarrowWebExchangeProj.Controllers
             {
                 var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
                 var siteUserInDb = _context.SiteUsers.Where(m => m.IdentityUserId == userId).FirstOrDefault();
+
+                listing.ListingEndDateTime = listing.ListingDateTime.AddDays(listing.ListingDays);
+
                 listing.SellerUserId = siteUserInDb.SiteUserId;
                 listing.ListingType = "Auction";
                 listing.Image1 = "~/images/" + listing.Image1;
@@ -170,6 +177,9 @@ namespace NarrowWebExchangeProj.Controllers
             {
                 var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
                 var siteUserInDb = _context.SiteUsers.Where(m => m.IdentityUserId == userId).FirstOrDefault();
+
+                listing.ListingEndDateTime = listing.ListingDateTime.AddDays(listing.ListingDays);
+
                 listing.SellerUserId = siteUserInDb.SiteUserId;
                 listing.ListingType = "BuyItNowAuction";
                 listing.Image1 = "~/images/" + listing.Image1;

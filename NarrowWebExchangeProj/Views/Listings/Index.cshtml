@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <h1>All Listings</h1>
 
 
@@ -12,24 +13,31 @@
 {
     <div class="container">
         <div class="row">
-            <div class="column-md-12">
-                
-                    @if (item.ListingType == "BuyItNow")
-                    {
-                        <a asp-action="EditBuyItNow" asp-route-id="@item.ListingId" id="details">See Details and Buy or Bid on this Item</a>
-                    }
-                    else if (item.ListingType == "Auction")
-                    {
-                        <a asp-action="EditAuction" asp-route-id="@item.ListingId" id="details">See Details and Buy or Bid on this Item</a>
-                    }
-                    else
-                    {
-                        <a asp-action="EditBuyItNowAuction" asp-route-id="@item.ListingId" id="details">See Details and Buy or Bid on this Item</a>
-                    }
+            <div class="column-md-4">
 
-                
+                @if (item.ListingType == "BuyItNow")
+                {
+                    <a asp-action="EditBuyItNow" asp-route-id="@item.ListingId" id="details">See Details and Buy or Bid on this Item</a>
+                }
+                else if (item.ListingType == "Auction")
+                {
+                    <a asp-action="EditAuction" asp-route-id="@item.ListingId" id="details">See Details and Buy or Bid on this Item</a>
+                }
+                else
+                {
+                    <a asp-action="EditBuyItNowAuction" asp-route-id="@item.ListingId" id="details">See Details and Buy or Bid on this Item</a>
+                }
+
+
+            </div>
+            <div>
+
+                <p><b>Date Time Now :</b> @DateTime.Now <b>  Listing Ends:</b> @Html.DisplayFor(modelItem => item.ListingEndDateTime)</p>
+
+
             </div>
         </div>
+
         <hr />
         <div class="row">
             <div class="col-3">

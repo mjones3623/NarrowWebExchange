@@ -10,8 +10,8 @@ using NarrowWebExchangeProj.Data;
 namespace NarrowWebExchangeProj.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200421120439_0421-704")]
-    partial class _0421704
+    [Migration("20200422151005_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -50,15 +50,15 @@ namespace NarrowWebExchangeProj.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f6ad02cf-8b15-43d1-91a9-ebc0b8a71da7",
-                            ConcurrencyStamp = "7b0c02bc-c5ff-433c-bc7f-33a6a5a6544f",
+                            Id = "e6678d3e-7b28-482b-9a27-f25cf4afd61b",
+                            ConcurrencyStamp = "f3aad25f-2d5e-46ac-b216-2d8394575f97",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "909a9928-951b-4388-86fe-ed2122b9d3d2",
-                            ConcurrencyStamp = "f14d279c-c797-4628-aa6f-5bf949bc8e50",
+                            Id = "7c46eb81-bd84-4bea-8c4b-f9d14328d59a",
+                            ConcurrencyStamp = "7069754f-b53d-4fb5-89c7-f9cc1f5fb03f",
                             Name = "SiteUser",
                             NormalizedName = "SiteUser"
                         });
@@ -321,11 +321,17 @@ namespace NarrowWebExchangeProj.Migrations
                     b.Property<string>("Image4")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("ItemSold")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime>("ListingDateTime")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("ListingDays")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("ListingEndDateTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ListingType")
                         .HasColumnType("nvarchar(max)");
@@ -356,6 +362,9 @@ namespace NarrowWebExchangeProj.Migrations
 
                     b.Property<int>("SellerUserId")
                         .HasColumnType("int");
+
+                    b.Property<bool>("TimedOurNoSale")
+                        .HasColumnType("bit");
 
                     b.Property<string>("ToolingIncluded")
                         .HasColumnType("nvarchar(max)");
