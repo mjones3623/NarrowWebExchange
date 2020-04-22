@@ -7,161 +7,126 @@
 
 <h1>Details for this BuyItNowAuction Listing</h1>
 
+
 <h4>Listing</h4>
+<hr />
+<p><b>Date Time Now :</b> @DateTime.Now <b>  Listing Ends:</b> @Html.DisplayFor(model => model.ListingEndDateTime)</p>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="EditBuyItNowAuction">
+        <form asp-action="EditBuyItNow">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ListingId" />
-            <div class="form-group">
-                <label asp-for="SellerUserId" class="control-label"></label>
-                <input asp-for="SellerUserId" class="form-control" />
-                <span asp-validation-for="SellerUserId" class="text-danger"></span>
+            <h4>To Purchase, Check Box and Hit BuyItNow Button</h4>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ItemSold" />
+                    Check This Box To BuyItNow!
+                </label>
             </div>
             <div class="form-group">
-                <label asp-for="Make" class="control-label"></label>
-                <input asp-for="Make" class="form-control" />
-                <span asp-validation-for="Make" class="text-danger"></span>
+                <input type="submit" value="BuyItNow" class="btn btn-primary" />
             </div>
-            <div class="form-group">
-                <label asp-for="Model" class="control-label"></label>
-                <input asp-for="Model" class="form-control" />
-                <span asp-validation-for="Model" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Hours" class="control-label"></label>
-                <input asp-for="Hours" class="form-control" />
-                <span asp-validation-for="Hours" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Year" class="control-label"></label>
-                <input asp-for="Year" class="form-control" />
-                <span asp-validation-for="Year" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Width" class="control-label"></label>
-                <input asp-for="Width" class="form-control" />
-                <span asp-validation-for="Width" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NumColors" class="control-label"></label>
-                <input asp-for="NumColors" class="form-control" />
-                <span asp-validation-for="NumColors" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NumDieStations" class="control-label"></label>
-                <input asp-for="NumDieStations" class="form-control" />
-                <span asp-validation-for="NumDieStations" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Condition" class="control-label"></label>
-                <input asp-for="Condition" class="form-control" />
-                <span asp-validation-for="Condition" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ToolingIncluded" class="control-label"></label>
-                <input asp-for="ToolingIncluded" class="form-control" />
-                <span asp-validation-for="ToolingIncluded" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FeaturesAndComments" class="control-label"></label>
-                <input asp-for="FeaturesAndComments" class="form-control" />
-                <span asp-validation-for="FeaturesAndComments" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ListingType" class="control-label"></label>
-                <input asp-for="ListingType" class="form-control" />
-                <span asp-validation-for="ListingType" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BuyItNowPrice" class="control-label"></label>
-                <input asp-for="BuyItNowPrice" class="form-control" />
-                <span asp-validation-for="BuyItNowPrice" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ReservePrice" class="control-label"></label>
-                <input asp-for="ReservePrice" class="form-control" />
-                <span asp-validation-for="ReservePrice" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ListingDateTime" class="control-label"></label>
-                <input asp-for="ListingDateTime" class="form-control" />
-                <span asp-validation-for="ListingDateTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ListingDays" class="control-label"></label>
-                <input asp-for="ListingDays" class="form-control" />
-                <span asp-validation-for="ListingDays" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CurrentBid" class="control-label"></label>
-                <input asp-for="CurrentBid" class="form-control" />
-                <span asp-validation-for="CurrentBid" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NumberOfBids" class="control-label"></label>
-                <input asp-for="NumberOfBids" class="form-control" />
-                <span asp-validation-for="NumberOfBids" class="text-danger"></span>
-            </div>
+        </form>
+    </div>
+    <div class="col-2">
+        <center>
+            <h1>OR</h1>
+        </center>
+    </div>
+    <div class="col-4">
+        <center>
+            <h4>Place a Bid on This Item</h4>
             <div class="form-group">
                 <label asp-for="HighBidPrice" class="control-label"></label>
                 <input asp-for="HighBidPrice" class="form-control" />
                 <span asp-validation-for="HighBidPrice" class="text-danger"></span>
+                <p>Price Must Be Higher Than:  @Html.DisplayFor(model => model.HighBidPrice)</p>
+                <div class="form-group">
+                    <input type="submit" value="Submit Bid" class="btn btn-primary" />
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="HighBidUserId" class="control-label"></label>
-                <input asp-for="HighBidUserId" class="form-control" />
-                <span asp-validation-for="HighBidUserId" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="ReserveMet" /> @Html.DisplayNameFor(model => model.ReserveMet)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="Commission" class="control-label"></label>
-                <input asp-for="Commission" class="form-control" />
-                <span asp-validation-for="Commission" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DueSeller" class="control-label"></label>
-                <input asp-for="DueSeller" class="form-control" />
-                <span asp-validation-for="DueSeller" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="PaymentReceived" /> @Html.DisplayNameFor(model => model.PaymentReceived)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="Image1" class="control-label"></label>
-                <input asp-for="Image1" class="form-control" />
-                <span asp-validation-for="Image1" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Image2" class="control-label"></label>
-                <input asp-for="Image2" class="form-control" />
-                <span asp-validation-for="Image2" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Image3" class="control-label"></label>
-                <input asp-for="Image3" class="form-control" />
-                <span asp-validation-for="Image3" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Image4" class="control-label"></label>
-                <input asp-for="Image4" class="form-control" />
-                <span asp-validation-for="Image4" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </center>
+
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
+
+
+<div class="row">
+    <div class="col-3">
+        <img src="@Url.Content(Model.Image1)" style="height:160px;width:210px;" alt="no image" />
+    </div>
+    <div class="col-9">
+        <table id="searchTable" style="width:100%">
+            <tr>
+                <th>Listing Type</th>
+                <th>BuyItNowPrice</th>
+                <th>Reserve Price</th>
+                <th>Current Bid</th>
+                <th>Number of Bids</th>
+                <th>Reserve Met?</th>
+            </tr>
+            <tr>
+                <td>@Html.DisplayFor(model => model.ListingType)</td>
+                <td>@Html.DisplayFor(model => model.BuyItNowPrice)</td>
+                <td>@Html.DisplayFor(model => model.ReservePrice)</td>
+                <td>@Html.DisplayFor(model => model.CurrentBid)</td>
+                <td>@Html.DisplayFor(model => model.NumberOfBids)</td>
+                <td>@Html.DisplayFor(model => model.ReserveMet)</td>
+            </tr>
+        </table>
+        <table id="searchTable" style="width:100%">
+            <tr>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Width</th>
+                <th>Hours</th>
+                <th>Year</th>
+                <th>Print Stations</th>
+                <th>Die Stations</th>
+                <th>Condition</th>
+            </tr>
+            <tr>
+                <td>@Html.DisplayFor(model => model.Make)</td>
+                <td>@Html.DisplayFor(model => model.Model)</td>
+                <td>@Html.DisplayFor(model => model.Width)</td>
+                <td>@Html.DisplayFor(model => model.Hours)</td>
+                <td>@Html.DisplayFor(model => model.Year)</td>
+                <td>@Html.DisplayFor(model => model.NumColors)</td>
+                <td>@Html.DisplayFor(model => model.NumDieStations)</td>
+                <td>@Html.DisplayFor(model => model.Condition)</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <center>
+        <img src="@Url.Content(Model.Image1)" style="height:160px;width:210px; border:5px white" alt="no image" />
+        <img src="@Url.Content(Model.Image2)" style="height:160px;width:210px; border:5px white" alt="no image" />
+        <img src="@Url.Content(Model.Image3)" style="height:160px;width:210px; border:5px white" alt="no image" />
+        <img src="@Url.Content(Model.Image4)" style="height:160px;width:210px; border:5px white" alt="no image" />
+    </center>
+   
+</div>
+<hr />
+<div class="row">
+
+    <table id="searchTable" style="width:100%">
+        <tr>
+            <th>Tooling Included</th>
+            <th>Features and Seller Comments</th>
+        </tr>
+        <tr>
+            <td>@Html.DisplayFor(model => model.ToolingIncluded)</td>
+            <td>@Html.DisplayFor(model => model.FeaturesAndComments)</td>
+        </tr>
+    </table>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+</div>

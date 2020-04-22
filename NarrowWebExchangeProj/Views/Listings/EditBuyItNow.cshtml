@@ -9,6 +9,8 @@
 
 <h4>Listing</h4>
 <hr />
+<p><b>Date Time Now :</b> @DateTime.Now <b>  Listing Ends:</b> @Html.DisplayFor(model => model.ListingEndDateTime)</p>
+<hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="EditBuyItNow">
@@ -75,6 +77,13 @@
         </table>
     </div>
     </div>
+<hr />
+<div class="row">
+    <img src="@Url.Content(Model.Image1)" style="height:160px;width:210px; border:5px white" alt="no image" />
+    <img src="@Url.Content(Model.Image2)" style="height:160px;width:210px; border:5px white" alt="no image" />
+    <img src="@Url.Content(Model.Image3)" style="height:160px;width:210px; border:5px white" alt="no image" />
+    <img src="@Url.Content(Model.Image4)" style="height:160px;width:210px; border:5px white" alt="no image" />
+</div>
 <hr />
 <div class="row">
     
