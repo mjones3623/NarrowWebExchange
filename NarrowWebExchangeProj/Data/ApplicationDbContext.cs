@@ -122,6 +122,7 @@ namespace NarrowWebExchangeProj.Data
         public DbSet<SiteUser> SiteUsers { get; set; }
         public DbSet<Make> Makes { get; set; }
         public DbSet<Listing> Listing { get; set; }
+        public DbSet<Bid> Bids { get; set; }
     }
     
 

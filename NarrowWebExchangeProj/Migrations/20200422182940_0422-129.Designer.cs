@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NarrowWebExchangeProj.Data;
 
 namespace NarrowWebExchangeProj.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200422182940_0422-129")]
+    partial class _0422129
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,15 +50,15 @@ namespace NarrowWebExchangeProj.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "d8d7ba90-fcd6-4d59-8430-7462bb6132ad",
-                            ConcurrencyStamp = "25ae72c8-7a7c-4f44-953d-237d3f34e10f",
+                            Id = "ca9c24ba-aaa9-4625-a0c3-7ac0caaed916",
+                            ConcurrencyStamp = "a0d8bc89-9b0f-4777-aeb9-4a09ce736d61",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "8591197d-c606-4e23-a59c-013f1db83ea2",
-                            ConcurrencyStamp = "da7b13d0-5255-4cf4-a250-37023b94b3f5",
+                            Id = "501e2c18-e8cc-4b77-88c7-020829ae6af0",
+                            ConcurrencyStamp = "a5687bff-1685-42b4-bc0e-d37f48838f9b",
                             Name = "SiteUser",
                             NormalizedName = "SiteUser"
                         });
@@ -231,24 +233,6 @@ namespace NarrowWebExchangeProj.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("NarrowWebExchangeProj.Models.Bid", b =>
-                {
-                    b.Property<int>("BidId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("BidListingId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("BidderId")
-                        .HasColumnType("int");
-
-                    b.HasKey("BidId");
-
-                    b.ToTable("Bids");
-                });
-
             modelBuilder.Entity("NarrowWebExchangeProj.Models.Condition", b =>
                 {
                     b.Property<int>("ConditionId")
@@ -298,26 +282,26 @@ namespace NarrowWebExchangeProj.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<double>("BuyItNowPrice")
-                        .HasColumnType("float");
+                    b.Property<int>("BuyItNowPrice")
+                        .HasColumnType("int");
 
-                    b.Property<double>("Commission")
-                        .HasColumnType("float");
+                    b.Property<int>("Commission")
+                        .HasColumnType("int");
 
                     b.Property<string>("Condition")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("CurrentBid")
-                        .HasColumnType("float");
+                    b.Property<int>("CurrentBid")
+                        .HasColumnType("int");
 
-                    b.Property<double>("DueSeller")
-                        .HasColumnType("float");
+                    b.Property<int>("DueSeller")
+                        .HasColumnType("int");
 
                     b.Property<string>("FeaturesAndComments")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("HighBidPrice")
-                        .HasColumnType("float");
+                    b.Property<int>("HighBidPrice")
+                        .HasColumnType("int");
 
                     b.Property<int>("HighBidUserId")
                         .HasColumnType("int");
@@ -373,8 +357,8 @@ namespace NarrowWebExchangeProj.Migrations
                     b.Property<bool>("ReserveMet")
                         .HasColumnType("bit");
 
-                    b.Property<double>("ReservePrice")
-                        .HasColumnType("float");
+                    b.Property<int>("ReservePrice")
+                        .HasColumnType("int");
 
                     b.Property<int>("SellerUserId")
                         .HasColumnType("int");

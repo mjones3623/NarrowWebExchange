@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NarrowWebExchangeProj.Data;
 
 namespace NarrowWebExchangeProj.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200422195331_0422-253")]
+    partial class _0422253
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,15 +50,15 @@ namespace NarrowWebExchangeProj.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "d8d7ba90-fcd6-4d59-8430-7462bb6132ad",
-                            ConcurrencyStamp = "25ae72c8-7a7c-4f44-953d-237d3f34e10f",
+                            Id = "326e159d-c7d8-4355-a9a9-fa71d4f2bcf6",
+                            ConcurrencyStamp = "90dd217c-f220-45d8-9df0-bcebcf9776df",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "8591197d-c606-4e23-a59c-013f1db83ea2",
-                            ConcurrencyStamp = "da7b13d0-5255-4cf4-a250-37023b94b3f5",
+                            Id = "4bdddd40-fd12-4f9d-bfdf-d6fa3de6de0c",
+                            ConcurrencyStamp = "78d82dbb-1662-4c53-9015-ca4911308fba",
                             Name = "SiteUser",
                             NormalizedName = "SiteUser"
                         });
@@ -229,24 +231,6 @@ namespace NarrowWebExchangeProj.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("NarrowWebExchangeProj.Models.Bid", b =>
-                {
-                    b.Property<int>("BidId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("BidListingId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("BidderId")
-                        .HasColumnType("int");
-
-                    b.HasKey("BidId");
-
-                    b.ToTable("Bids");
                 });
 
             modelBuilder.Entity("NarrowWebExchangeProj.Models.Condition", b =>

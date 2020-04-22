@@ -38,9 +38,9 @@ namespace NarrowWebExchangeProj.Models
         [Display(Name = "Listing Type")]
         public string ListingType { get; set; }
         [Display(Name = "BuyItNow Price")]
-        public int BuyItNowPrice { get; set; }
+        public double BuyItNowPrice { get; set; }
         [Display(Name = "Reserve Price")]
-        public int ReservePrice { get; set; }
+        public double ReservePrice { get; set; }
         [Display(Name = "Date & Time to Start Listing")]
         public DateTime ListingDateTime { get; set; }
         [Display(Name = "Number of Days For Your Auction")]
@@ -48,15 +48,15 @@ namespace NarrowWebExchangeProj.Models
         public int ListingDays { get; set; }
         //No user input below here
         public DateTime ListingEndDateTime { get; set; }
-        public int CurrentBid { get; set; }        
+        public double CurrentBid { get; set; }        
         public int NumberOfBids { get; set; }
-        public int HighBidPrice { get; set; }
+        public double HighBidPrice { get; set; }
         public int HighBidUserId { get; set; }
         public bool ItemSold { get; set; }
-        public bool TimedOurNoSale { get; set; }
+        public bool TimedOutNoSale { get; set; }
         public bool ReserveMet { get; set; }
-        public int Commission { get; set; }
-        public int DueSeller { get; set; }
+        public double Commission { get; set; }
+        public double DueSeller { get; set; }
         public bool PaymentReceived { get; set; }
         [Display(Name = "Upload Image File")]
         public string Image1 { get; set; }

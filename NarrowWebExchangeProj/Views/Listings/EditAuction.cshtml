@@ -13,16 +13,24 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="EditBuyItNow">
+        <form asp-action="EditAuction">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ListingId" />
             <h4>Place a Bid on This Item</h4>
-               <div class="form-group">
-                   <label asp-for="HighBidPrice" class="control-label"></label>
-                   <input asp-for="HighBidPrice" class="form-control" />
-                   <span asp-validation-for="HighBidPrice" class="text-danger"></span>
-                   <p>Price Must Be Higher Than:  @Html.DisplayFor(model => model.HighBidPrice)</p>
-               </div>
+            <div class="form-group">
+                <label asp-for="HighBidPrice" class="control-label"></label>
+                <input asp-for="HighBidPrice" class="form-control" />
+                <span asp-validation-for="HighBidPrice" class="text-danger"></span>
+                @if (Model.CurrentBid > Model.ReservePrice)
+                {
+                    <p>Price Must Be Higher Than:  @Html.DisplayFor(model => model.CurrentBid)</p>
+                }
+                else
+                {
+                    <p>Price Must Be Higher Than:  @Html.DisplayFor(model => model.ReservePrice)</p>
+                }
+
+            </div>
 
             <div class="form-group">
                 <input type="submit" value="BuyItNow" class="btn btn-primary" />
