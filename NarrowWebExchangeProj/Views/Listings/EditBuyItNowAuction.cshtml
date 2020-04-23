@@ -17,7 +17,7 @@
         <form asp-action="EditBuyItNowAuction">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ListingId" />
-            <h4>To Purchase, Check Box and Hit BuyItNow Button</h4>
+            <h4>To Purchase <b>at the BuyItNow price</b>, Check Box and Hit BuyItNow Button</h4>
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="ItemSold" />
@@ -25,32 +25,47 @@
                 </label>
             </div>
             <div class="form-group">
-                <input type="submit" value="BuyItNow" class="btn btn-primary" />
+                <input type="submit" value="BuyItNow!" class="btn btn-primary" />
             </div>
         </form>
     </div>
+
     <div class="col-2">
         <center>
             <h1>OR</h1>
         </center>
     </div>
+    
     <div class="col-4">
-        <center>
-            <h4>Place a Bid on This Item</h4>
-            <div class="form-group">
-                <label asp-for="HighBidPrice" class="control-label"></label>
-                <input asp-for="HighBidPrice" class="form-control" />
-                <span asp-validation-for="HighBidPrice" class="text-danger"></span>
-                <p>Price Must Be Higher Than:  @Html.DisplayFor(model => model.HighBidPrice)</p>
+        <form asp-action="EditBuyItNowAuction">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ListingId" />
+            <center>
+                <h4>Place a Bid on This Item</h4>
                 <div class="form-group">
-                    <input type="submit" value="Submit Bid" class="btn btn-primary" />
+                    @*<label asp-for="HighBidPrice" class="control-label"></label>*@
+                    <input asp-for="HighBidPrice" class="form-control" />
+                    <span asp-validation-for="HighBidPrice" class="text-danger"></span>
+                    @if (Model.CurrentBid > Model.ReservePrice)
+                    {
+                        <p>Price Must Be Higher Than:  @Html.DisplayFor(model => model.CurrentBid)</p>
+                    }
+                    else
+                    {
+                        <p>Price Must Be Higher Than:  @Html.DisplayFor(model => model.ReservePrice)</p>
+                    }
+                    <div class="form-group">
+                        <input type="submit" value="Submit Bid" class="btn btn-primary" />
+                    </div>
                 </div>
-            </div>
-        </center>
-
+            </center>
+        </form>
     </div>
-</div>
 
+    
+
+</div>
+<hr />
 
 
 

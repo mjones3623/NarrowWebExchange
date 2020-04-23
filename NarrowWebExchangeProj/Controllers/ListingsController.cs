@@ -275,7 +275,7 @@ namespace NarrowWebExchangeProj.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditBuyItNow(int id, [Bind()] Listing listing)
+        public async Task<IActionResult> EditBuyItNow(int id, [Bind("ListingId")] Listing listing)
         {
             var itemSold = listing.ItemSold;
 
@@ -305,6 +305,10 @@ namespace NarrowWebExchangeProj.Controllers
                         _context.Update(listing);
                         await _context.SaveChangesAsync();
 
+                    }
+                    else
+                    {
+                        return View();
                     }
 
                    
@@ -366,23 +370,9 @@ namespace NarrowWebExchangeProj.Controllers
             {
                 try
                 {
-                    if(highBidPrice > listing.ReservePrice)
+                    if(highBidPrice >= listing.ReservePrice && highBidPrice > listing.HighBidPrice)
                     {
                         listing.ReserveMet = true;
-                        listing.HighBidPrice = highBidPrice;
-                        listing.HighBidUserId = siteUserInDb.SiteUserId;
-                        listing.NumberOfBids++;
-                        listing.CurrentBid = highBidPrice;
-                        Bid bid = new Bid();
-                        bid.BidListingId = listing.ListingId;
-                        bid.BidderId = siteUserInDb.SiteUserId;
-                        _context.Add(bid);
-                        await _context.SaveChangesAsync();
-                        _context.Update(listing);
-                        await _context.SaveChangesAsync();
-                    }
-                    else if(highBidPrice > listing.HighBidPrice)
-                    {
                         listing.HighBidPrice = highBidPrice;
                         listing.HighBidUserId = siteUserInDb.SiteUserId;
                         listing.NumberOfBids++;
@@ -439,8 +429,18 @@ namespace NarrowWebExchangeProj.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditBuyItNowAuction(int id, [Bind("ListingId,SellerUserId,Make,Model,Hours,Year,Width,NumColors,NumDieStations,Condition,ToolingIncluded,FeaturesAndComments,ListingType,BuyItNowPrice,ReservePrice,ListingDateTime,ListingDays,CurrentBid,NumberOfBids,HighBidPrice,HighBidUserId,ReserveMet,Commission,DueSeller,PaymentReceived,Image1,Image2,Image3,Image4")] Listing listing)
+        public async Task<IActionResult> EditBuyItNowAuction(int id, [Bind("ListingId,HighBidPrice,ItemSold")] Listing listing)
         {
+            var highBidPrice = listing.HighBidPrice;
+            var itemSold = listing.ItemSold;
+
+            var ListingInDb = _context.Listing.Where(m => m.ListingId == listing.ListingId).FirstOrDefault();
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var siteUserInDb = _context.SiteUsers.Where(m => m.IdentityUserId == userId).FirstOrDefault();
+
+            listing = ListingInDb;
+
+
             if (id != listing.ListingId)
             {
                 return NotFound();
@@ -450,8 +450,43 @@ namespace NarrowWebExchangeProj.Controllers
             {
                 try
                 {
-                    _context.Update(listing);
-                    await _context.SaveChangesAsync();
+                    if (itemSold == true && highBidPrice > 0)
+                    {
+
+                        return View();
+                    }
+                    else if (itemSold == true)
+                    {
+                        listing.ItemSold = true;
+                        listing.HighBidUserId = siteUserInDb.SiteUserId;
+                        listing.Commission = listing.BuyItNowPrice * 0.05;
+                        listing.DueSeller = listing.BuyItNowPrice * 0.95;
+
+                        _context.Update(listing);
+                        await _context.SaveChangesAsync();
+                    }
+                    else if (highBidPrice >= listing.ReservePrice && highBidPrice > listing.HighBidPrice)
+                    {
+                        listing.ReserveMet = true;
+                        listing.HighBidPrice = highBidPrice;
+                        listing.HighBidUserId = siteUserInDb.SiteUserId;
+                        listing.NumberOfBids++;
+                        listing.CurrentBid = highBidPrice;
+                        Bid bid = new Bid();
+                        bid.BidListingId = listing.ListingId;
+                        bid.BidderId = siteUserInDb.SiteUserId;
+                        _context.Add(bid);
+                        await _context.SaveChangesAsync();
+                        _context.Update(listing);
+                        await _context.SaveChangesAsync();
+                    }
+                    else
+                    {
+                        return View();
+                    }
+
+
+
                 }
                 catch (DbUpdateConcurrencyException)
                 {

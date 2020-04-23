@@ -67,7 +67,7 @@ namespace NarrowWebExchangeProj.Controllers
                 siteUser.IdentityUserId = userId;
                 _context.Add(siteUser);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index","Listings");
             }
             ViewData["IdentityUserId"] = new SelectList(_context.Users, "Id", "Id", siteUser.IdentityUserId);
             return View("Home");
