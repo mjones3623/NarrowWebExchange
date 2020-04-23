@@ -42,7 +42,7 @@ namespace NarrowWebExchangeProj.Controllers
                                     
             myActivity1 = _context.Listing
             .Where(e => ((e.ItemSold == true) && (siteUserInDb.SiteUserId == e.HighBidUserId)) || 
-            (e.SellerUserId == siteUserInDb.SiteUserId)|| (siteUserBids[0].BidListingId == e.ListingId)).ToList();
+            (e.SellerUserId == siteUserInDb.SiteUserId)).ToList();
 
             myActivity1.AddRange(bidListings); 
             
@@ -328,6 +328,7 @@ namespace NarrowWebExchangeProj.Controllers
                     {
                         listing.ItemSold = true;
                         listing.HighBidUserId = siteUserInDb.SiteUserId;
+                        listing.HighBidPrice = listing.BuyItNowPrice;
                         listing.Commission = listing.BuyItNowPrice * 0.05;
                         listing.DueSeller = listing.BuyItNowPrice * 0.95;
 
@@ -488,6 +489,7 @@ namespace NarrowWebExchangeProj.Controllers
                     {
                         listing.ItemSold = true;
                         listing.HighBidUserId = siteUserInDb.SiteUserId;
+                        listing.HighBidPrice = listing.BuyItNowPrice;
                         listing.Commission = listing.BuyItNowPrice * 0.05;
                         listing.DueSeller = listing.BuyItNowPrice * 0.95;
 
