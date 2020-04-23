@@ -20,6 +20,35 @@ namespace NarrowWebExchangeProj.Controllers
         {
             _context = context;
         }
+
+        public IActionResult MyActivity()
+        {
+            List<Listing> myActivity1 = new List<Listing>();
+            List<Bid> siteUserBids = new List<Bid>();
+            List<Listing> bidListingIds = new List<Listing>();
+            List<Listing> bidListings = new List<Listing>();
+            
+
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var siteUserInDb = _context.SiteUsers.Where(m => m.IdentityUserId == userId).FirstOrDefault();
+            siteUserBids = _context.Bids.Where(b => b.BidderId == siteUserInDb.SiteUserId).ToList();
+
+            for (int i = 0; i < siteUserBids.Count; i++)
+            {
+                var listing1 = _context.Listing.Where(l => l.ListingId == siteUserBids[i].BidListingId).FirstOrDefault();
+                bidListings.Add(listing1);
+                                
+            };
+                                    
+            myActivity1 = _context.Listing
+            .Where(e => ((e.ItemSold == true) && (siteUserInDb.SiteUserId == e.HighBidUserId)) || 
+            (e.SellerUserId == siteUserInDb.SiteUserId)|| (siteUserBids[0].BidListingId == e.ListingId)).ToList();
+
+            myActivity1.AddRange(bidListings); 
+            
+            return View(myActivity1);
+        }
+
         // GET: Search
 
         public IActionResult SearchResults()
