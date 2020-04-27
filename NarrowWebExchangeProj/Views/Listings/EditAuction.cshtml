@@ -21,19 +21,15 @@
                 <label asp-for="HighBidPrice" class="control-label"></label>
                 <input asp-for="HighBidPrice" class="form-control" />
                 <span asp-validation-for="HighBidPrice" class="text-danger"></span>
-                @if (Model.CurrentBid > Model.ReservePrice)
-                {
+               
+                
                     <p>Price Must Be Higher Than:  @Html.DisplayFor(model => model.CurrentBid)</p>
-                }
-                else
-                {
-                    <p>Price Must Be Higher Than:  @Html.DisplayFor(model => model.ReservePrice)</p>
-                }
+              
 
             </div>
 
             <div class="form-group">
-                <input type="submit" value="BuyItNow" class="btn btn-primary" />
+                <input type="submit" value="Submit Bid" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -56,7 +52,7 @@
             <tr>
                 <td>@Html.DisplayFor(model => model.ListingType)</td>
                 <td>@Html.DisplayFor(model => model.BuyItNowPrice)</td>
-                <td>@Html.DisplayFor(model => model.ReservePrice)</td>
+                <td>Hidden</td>
                 <td>@Html.DisplayFor(model => model.CurrentBid)</td>
                 <td>@Html.DisplayFor(model => model.NumberOfBids)</td>
                 <td>@Html.DisplayFor(model => model.ReserveMet)</td>

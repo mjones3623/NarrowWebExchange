@@ -1,8 +1,10 @@
 ﻿@model IEnumerable<NarrowWebExchangeProj.Models.Listing>
 
+
 @{
     ViewData["Title"] = "MyActivity";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    
 }
 
 <h1>MyActivity</h1>
@@ -11,13 +13,14 @@
 
 @foreach (var item in Model)
 {
+   
     <div class="container">
         <div class="row">
             <div class="column-md-4">
 
                 @if (item.ItemSold == true)
                 {
-                    
+
                     <h5>This Item Has Been Sold</h5>
 
                 }
@@ -46,36 +49,36 @@
                 }
 
             </div>
-            
-                <div class="col-6">
-                    <Center>
-                        @if (item.ItemSold == true || item.TimedOutNoSale == true)
-                        {
-                            <table id="searchTable" style="width:40%">
-                                <tr>
-                                    <th>Purchase Price</th>
 
-                                </tr>
-                                <tr>
-                                    <td>@Html.DisplayFor(modelItem => item.HighBidPrice)</td>
+            <div class="col-8">
+                <Center>
+                    @if (item.ItemSold == true || item.TimedOutNoSale == true)
+                    {
+                        <table id="searchTable" style="width:40%">
+                            <tr>
+                                <th>Purchase Price</th>
 
-                                </tr>
-                            </table>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.HighBidPrice)</td>
 
-                        }
-                        else if (item.ListingDateTime > DateTime.Now)
-                        {
-                            <p><b>The auction will start:</b>@Html.DisplayFor(modelItem => item.ListingDateTime) <b>And will end: </b>@Html.DisplayFor(modelItem => item.ListingEndDateTime)</p>
-                        }
-                        else
-                        {
-                            <p><b>Date Time Now :</b> @DateTime.Now <b>  Listing Ends:</b> @Html.DisplayFor(modelItem => item.ListingEndDateTime)</p>
+                            </tr>
+                        </table>
 
-                        }
+                    }
+                    else if (item.ListingDateTime > DateTime.Now)
+                    {
+                        <p><b>The auction will start:</b>@Html.DisplayFor(modelItem => item.ListingDateTime) <b>And will end: </b>@Html.DisplayFor(modelItem => item.ListingEndDateTime)</p>
+                    }
+                    else
+                    {
+                        <p><b>Date Time Now :</b> @DateTime.Now <b>  Listing Ends:</b> @Html.DisplayFor(modelItem => item.ListingEndDateTime)</p>
 
-                    </Center>
-                 </div>
-         </div>
+                    }
+
+                </Center>
+            </div>
+        </div>
 
         <hr />
         <div class="row">

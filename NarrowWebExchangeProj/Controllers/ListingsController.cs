@@ -33,7 +33,7 @@ namespace NarrowWebExchangeProj.Controllers
             var siteUserInDb = _context.SiteUsers.Where(m => m.IdentityUserId == userId).FirstOrDefault();
             siteUserBids = _context.Bids.Where(b => b.BidderId == siteUserInDb.SiteUserId).ToList();
 
-            for (int i = 0; i < siteUserBids.Count; i++)
+            for (int i = 0; i < siteUserBids.Count - 1; i++)
             {
                 var listing1 = _context.Listing.Where(l => l.ListingId == siteUserBids[i].BidListingId).FirstOrDefault();
                 bidListings.Add(listing1);
@@ -68,7 +68,7 @@ namespace NarrowWebExchangeProj.Controllers
             (e.Year >= searchInDb.SearchFromYear && e.Year <= searchInDb.SearchToYear) &&
             (e.NumColors >= searchInDb.SearchMinNumColors && e.NumColors <= searchInDb.SearchMaxNumColors) &&
             (e.NumDieStations >= searchInDb.SearchMinNumDieStations && e.NumDieStations <= searchInDb.SearchMaxNumDieStations) &&
-            (e.ListingType == searchInDb.SearchListingType) && (e.ItemSold == false) && (e.TimedOutNoSale == false) &&
+            (e.ListingType == searchInDb.SearchListingType) && (e.ItemSold == false) &&  (e.TimedOutNoSale == false) && 
             (e.ListingDateTime <= now) && (e.ListingEndDateTime >= now))).ToList();
 
             
@@ -502,6 +502,23 @@ namespace NarrowWebExchangeProj.Controllers
                         listing.HighBidPrice = highBidPrice;
                         listing.HighBidUserId = siteUserInDb.SiteUserId;
                         listing.NumberOfBids++;
+                        listing.ListingType = "Auction";
+                        listing.CurrentBid = highBidPrice;
+                        Bid bid = new Bid();
+                        bid.BidListingId = listing.ListingId;
+                        bid.BidderId = siteUserInDb.SiteUserId;
+                        _context.Add(bid);
+                        await _context.SaveChangesAsync();
+                        _context.Update(listing);
+                        await _context.SaveChangesAsync();
+                    }
+                    else if (highBidPrice > listing.HighBidPrice)
+                    {
+                        
+                        listing.HighBidPrice = highBidPrice;
+                        listing.HighBidUserId = siteUserInDb.SiteUserId;
+                        listing.NumberOfBids++;
+                        
                         listing.CurrentBid = highBidPrice;
                         Bid bid = new Bid();
                         bid.BidListingId = listing.ListingId;
